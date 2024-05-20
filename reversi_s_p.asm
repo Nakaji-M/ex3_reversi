@@ -31,16 +31,16 @@ BSA	SHOW
 BUN	MAIN1
 
 MAIN1,
-BSA	O_ENTER	/���s
+BSA	O_ENTER	/改行
 BSA	RECEIVE
 
 MAIN2,
-BSA	O_ENTER	/���s
+BSA	O_ENTER	/改行
 BSA	SEND
 
 LDA	PASS
 ADD	VM2
-SZA	/if(M[PASS]=2)���[�v�𔲂���
+SZA	/if(M[PASS]=2)ループを抜ける
 
 BUN	MAIN1
 
@@ -121,7 +121,7 @@ INPASS,	LDA VH7A
 
 //////////////////////////////subroutine RECEIVE/////////////////////////////////////
 RECEIVE, HEX	0
-/�p���������͑ҋ@
+/パラレル入力待機
 CLA
 PIO
 RECEIVEL0, SKI	/ if(S_IN ready) skip next
@@ -133,11 +133,11 @@ BSA	PASSCNT
 
 LDA	PASS
 _B_, SZA
-BUN	RECEIVEL1	/�p�X�̏ꍇRECEIVEL1�܂Ŕ��
+BUN	RECEIVEL1	/パスの場合RECEIVEL1まで飛ぶ
 
 BSA	REFRESH
 RECEIVEL1, BSA	SHOW
-BSA	O_ENTER	/���s
+BSA	O_ENTER	/改行
 BSA	TRNCNT
 BUN	RECEIVE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
@@ -146,20 +146,20 @@ BUN	RECEIVE	I
 //////////////////////////////subroutine SEND/////////////////////////////////////
 SEND,	HEX	0
 BSA	INPUT
-BSA	O_ENTER	/���s
+BSA	O_ENTER	/改行
 
 BSA	PASSCNT
 
 LDA	PASS
 _B_,SZA
-BUN	SENDL1	/�p�X�̏ꍇSEND1�܂Ŕ��
+BUN	SENDL1	/パスの場合SEND1まで飛ぶ
 
 BSA	REFRESH
 BSA	SHOW
-BSA	O_ENTER	/���s
+BSA	O_ENTER	/改行
 
 SENDL1, 
-/�p�������o�͂���
+/パラレル出力する
 PIO
 LDA	STN
 SENDL2, SKO	/ if(S_OUT ready) skip next
@@ -201,11 +201,11 @@ ADD	VM7A
 SPA
 BUN	PASSCNTL1
 
-/M[STN]<0 �p�X�̎�
+/M[STN]<0 パスの時
 ISZ	PASS
 BUN	PASSCNT	I
 
-/M[STN]>0 �p�X�łȂ��Ƃ�
+/M[STN]>0 パスでないとき
 PASSCNTL1,
 CLA
 STA	PASS
@@ -221,7 +221,38 @@ STA	K
 LDA	PTCNST
 STA	PTTMP
 
-SHOWLOOP1, CLA	/�K�v���������x����t���邽��
+/show label
+LDA	VM8
+STA	L
+
+WSOUT1,	LDA	VH20
+SKO
+BUN	WSOUT1
+OUT
+
+WSOUT2,	LDA	VH20
+SKO
+BUN	WSOUT2
+OUT
+
+APOUT,	LDA	VH49
+ADD	L
+SKO
+BUN	APOUT
+OUT
+ISZ	L
+BUN	WSOUT2
+BSA	O_ENTER
+
+SHOWLOOP1, LDA	VH9	/必要無いがラベルを付けるため
+ADD	K
+ADD	VH30
+SKO
+BUN	SHOWLOOP1
+OUT
+LINEOUT, LDA VH7C
+SKO
+BUN LINEOUT
 LDA	VM8
 STA	L
 
@@ -229,10 +260,10 @@ SHOWLOOP2, LDA	PTTMP	I
 
 ADD	VM1
 SPA
-LDA	VM2E	/M[PTTMP] - 1 = -1 �܂�M[PTTMP] = 0
+LDA	VM2E	/M[PTTMP] - 1 = -1 つまりM[PTTMP] = 0
 SZA
-ADD	VH24	/(M[PTTMP] - 1 = 1 �܂�M[PTTMP] = 2 )�܂���M[PTTMP] = 0
-ADD	VH2A	/M[PTTMP] = 1�̂Ƃ�1+VM1+VH2A=VH2A=*, M[PTTMP] = 2�̂Ƃ�2+VM1+VH24+VH2A=VH4F=O, M[PTTMP] = 0�̂Ƃ�0+VM1+VM2E+VH24+VH2A=VH20
+ADD	VH24	/(M[PTTMP] - 1 = 1 つまりM[PTTMP] = 2 )またはM[PTTMP] = 0
+ADD	VH2A	/M[PTTMP] = 1のとき1+VM1+VH2A=VH2A=*, M[PTTMP] = 2のとき2+VM1+VH24+VH2A=VH4F=O, M[PTTMP] = 0のとき0+VM1+VM2E+VH24+VH2A=VH20
 
 SHOWL1, SKO	/ if(S_OUT ready) skip next
 BUN SHOWL1	/ goto SHOWLOOP(S_OUT not ready)
@@ -244,8 +275,8 @@ SHOWL2, SKO	/ if(S_OUT ready) skip next
 BUN SHOWL2	/ goto SHOWLOOP(S_OUT not ready)
 OUT	/ OUTR <- AC(7:0)
 
-ISZ	PTTMP	/�X�L�b�v����邱�Ƃ͂Ȃ�
-ISZ	L	/SHOWLOOP2�𔲂��邩����
+ISZ	PTTMP	/スキップされることはない
+ISZ	L	/SHOWLOOP2を抜けるか判定
 BUN	SHOWLOOP2
 
 LDA	VHA
@@ -262,29 +293,29 @@ BUN	SHOW	I
 
 //////////////////////////////subroutine REFRESH/////////////////////////////////////
 REFRESH, HEX	0
-/�Ƃ肠�������͂��ꂽ�΂̕��������X�V����
+/とりあえず入力された石の部分だけ更新する
 LDA	STN
 ADD	PTCNST
 STA	PTSTN
 LDA	TRN
 STA	PTSTN	I
-//�����
+//上方向
 LDA	VM8
 STA	GONUM
 LDA	VH8
 STA	BACKNUM
 LDA	VH64
-STA	EDGE	/���������΂ɕ��ɂȂ鐔����
+STA	EDGE	/引いたら絶対に負になる数を代入
 BSA	CROSS
-//������
+//下方向
 LDA	VH8
 STA	GONUM
 LDA	VM8
 STA	BACKNUM
 LDA	VH64
-STA	EDGE	/���������΂ɕ��ɂȂ鐔����
+STA	EDGE	/引いたら絶対に負になる数を代入
 BSA	CROSS
-//������
+//左方向
 LDA	VM1
 STA	GONUM
 LDA	VH1
@@ -292,7 +323,7 @@ STA	BACKNUM
 LDA	VH7
 STA	EDGE
 BSA	CROSS
-//�E����
+//右方向
 LDA	VH1
 STA	GONUM
 LDA	VM1
@@ -300,7 +331,7 @@ STA	BACKNUM
 CLA
 STA	EDGE
 BSA	CROSS
-//����
+//左上
 LDA	VM9
 STA	GONUM
 LDA	VH9
@@ -308,7 +339,7 @@ STA	BACKNUM
 LDA	VH7
 STA	EDGE
 BSA	CROSS
-//�E��
+//右下
 LDA	VH9
 STA	GONUM
 LDA	VM9
@@ -316,7 +347,7 @@ STA	BACKNUM
 CLA
 STA	EDGE
 BSA	CROSS
-//�E��
+//右上
 LDA	VM7
 STA	GONUM
 LDA	VH7
@@ -324,7 +355,7 @@ STA	BACKNUM
 CLA
 STA	EDGE
 BSA	CROSS
-//����
+//左下
 LDA	VH7
 STA	GONUM
 LDA	VM7
@@ -344,13 +375,13 @@ STA	Z
 MULL0, HEX	0
 CLE	/ E <- 0
 LDA	Y	/ AC <- M[Y]
-SZA	/(AC==0)�Ȃ�Ύ����߃X�L�b�v
+SZA	/(AC==0)ならば次命令スキップ
 BUN	LY	/ goto LY
 BUN	MUL	I
 / M[Y] >>= 1
 LY, CIR	/ AC(15:0) >>= 1
 STA	Y	/ M[Y] <- AC
-SZE	/(E==0)�Ȃ�Ύ����߃X�L�b�v
+SZE	/(E==0)ならば次命令スキップ
 BUN LP	/ goto LP
 / M[X] <<= 1
 LX, LDA	X	/ AC <- M[X]
@@ -366,31 +397,31 @@ BUN	LX	/ goto LX
 //////////////////////////////end of subroutine////////////////////////////////////
 
 //////////////////////////////subroutine CROSS/////////////////////////////////////
-/��������l����
+/上方向を考える
 CROSS, HEX	0
-/PT��΂�u�����ʒu�ɑ�������z��v�f�̃A�h���X�Ƃ���
+/PTを石を置いた位置に相当する配列要素のアドレスとする
 LDA	PTSTN
 STA	PTTMP
 
-/do{ i++; } while(STN-8i>= PTCNST(�A���_�[�t���[�z��͈͊O) && STN-8i < PTCNST+64 (�I�[�o�[�t���[�z��͈͊O) && D[STN-8i] != 0(�܂��΂��u����ĂȂ��}�X) && D[STN-8i] != M[TRN](�����̐F�̐΂��u���Ă���}�X))
-/do����
+/do{ i++; } while(STN-8i>= PTCNST(アンダーフロー配列範囲外) && STN-8i < PTCNST+64 (オーバーフロー配列範囲外) && D[STN-8i] != 0(まだ石が置かれてないマス) && D[STN-8i] != M[TRN](自分の色の石が置いてあるマス))
+/do部分
 CROSSLOOP, LDA	PTTMP
 ADD	GONUM
 STA	PTTMP
-/while����
+/while部分
 LDA	PTCNST
 ADD	EDGE
 CMA
 INC
 ADD	PTTMP
-ADD	VH8	/�����ADD VM8�̑ł�����
+ADD	VH8	/初回のADD VM8の打ち消し
 CROSSLOOP3, 
 ADD	VM8
 SPA
-BUN	CROSSL	/AC<0 =>���Β[�ł͂Ȃ�
+BUN	CROSSL	/AC<0 =>反対端ではない
 SZA
 BUN	CROSSLOOP3
-BUN	CROSSHLT	/AC=0 =>���Β[�ɓ��Bdo while�I��
+BUN	CROSSHLT	/AC=0 =>反対端に到達do while終了
 CROSSL,LDA		PTCNST
 CMA
 ADD	PTTMP
@@ -415,26 +446,26 @@ SZA
 BUN	CROSSLOOP	/if D[STN-8i] != M[TRN]  
 
 
-/if(D[STN-8i] == M[TRN]) �߂��đS���΂𔽓]
-/do{ i++; �΂������̐F�ɂ���} while(STN+8i != PTSTN(���͂��������܂łЂ�����Ԃ���))
-/do{ i++; �΂������̐F�ɂ���}
+/if(D[STN-8i] == M[TRN]) 戻って全部石を反転
+/do{ i++; 石を自分の色にする} while(STN+8i != PTSTN(入力した文字までひっくり返した))
+/do{ i++; 石を自分の色にする}
 CROSSLOOP2, LDA	TRN
 STA	PTTMP	I
 LDA	PTTMP
 ADD	BACKNUM
 STA	PTTMP
-/while(STN+8i != PTSTN(���͂��������܂łЂ�����Ԃ���))
+/while(STN+8i != PTSTN(入力した文字までひっくり返した))
 CMA
 ADD	PTSTN
 INC
 SZA
 BUN	CROSSLOOP2
 
-/else �����ς��Ȃ�
+/else 何も変えない
 CROSSHLT, BUN	CROSS	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
 
-//�f�[�^
+//データ
 VH1, DEC	1
 VM1, DEC	-1
 VH7, DEC	7
@@ -447,7 +478,7 @@ VH9, DEC	9
 VM9, DEC	-9
 VH24, HEX	24
 VH2A, HEX	2A
-VH40, HEX	40	/10�i����64
+VH40, HEX	40	/10進数で64
 VM10, DEC	-16
 VH64, HEX	64
 VH7A, HEX	7A
@@ -458,18 +489,20 @@ VM2E, DEC	-46
 VM31, DEC	-49
 VH20, HEX	20
 VH7C, HEX	7C	/|
+VH30, HEX	30
+VH49, HEX	49
 VM41, DEC	-65
 BACKNUM, DEC	-8
 GONUM, DEC	8
 EDGE, DEC	0
-PASS,DEC	0	/�p�X�����͂��ꂽ��1�A�A�����ăp�X�����͂��ꂽ��2
-K, DEC		0	/for����int i
-L, DEC		0	/for����int i
-STN, DEC	0	/Stone.���u���ꂽ�΂̒ʂ��ԍ�
-TRN, DEC	1	/���݂̃^�[����1��2�̂ǂ��炩
-PTSTN, DEC	0	/���u���ꂽ�΂̔z��v�f�̃A�h���X
-PTTMP, DEC	0	/�R���s���[�^�������Ă���΂̔z��v�f�̃A�h���X
-PTCNST, SYM D / M[PT] = �i���x�� D �̃A�h���X�A���������֎~�j
+PASS,DEC	0	/パスが入力されたら1、連続してパスが入力されたら2
+K, DEC		0	/for文のint i
+L, DEC		0	/for文のint i
+STN, DEC	0	/Stone.今置かれた石の通し番号
+TRN, DEC	1	/現在のターンは1と2のどちらか
+PTSTN, DEC	0	/今置かれた石の配列要素のアドレス
+PTTMP, DEC	0	/コンピュータが今見ている石の配列要素のアドレス
+PTCNST, SYM D / M[PT] = （ラベル D のアドレス、書き換え禁止）
 A_PL_CNST,	SYM PL
 A_PL,	SYM PL
 CNT_PL_CNST,DEC -6		/ CNT_BMG = -6
@@ -499,7 +532,7 @@ X,	DEC 0
 Y,	DEC 8
 Z,	DEC 0
 KN,	DEC -16
-P, DEC 0	/ M[P] = 0�i�������K�v�j
+P, DEC 0	/ M[P] = 0（初期化必要）
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
    DEC 0	/ D[2]
