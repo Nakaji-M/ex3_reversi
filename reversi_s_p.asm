@@ -157,6 +157,9 @@ BUN	SENDL1	/パスの場合SEND1まで飛ぶ
 BSA	REFRESH
 BSA	SHOW
 BSA	O_ENTER	/改行
+LDA	TAFG
+SZA
+BUN	TYPE_AG
 
 SENDL1, 
 /パラレル出力する
@@ -169,6 +172,7 @@ OUT
 BSA	TRNCNT
 
 BUN	SEND	I
+TYPE_AG,	
 /////////////////////////////end of subroutine/////////////////////////////////////
 
 
@@ -294,12 +298,8 @@ BUN	SHOW	I
 
 //////////////////////////////subroutine REFRESH/////////////////////////////////////
 REFRESH, HEX	0
-/とりあえず入力された石の部分だけ更新する
-LDA	STN
-ADD	PTCNST
-STA	PTSTN
-LDA	TRN
-STA	PTSTN	I
+CLA
+STA	TAFG
 //上方向
 LDA	VM8
 STA	GONUM
@@ -364,8 +364,17 @@ STA	BACKNUM
 LDA	VH7
 STA	EDGE
 BSA	CROSS
-
-BUN	REFRESH	I
+//
+LDA	TAFG
+SZA
+BUN	REFRESHHLT
+/とりあえず入力された石の部分だけ更新する
+LDA	STN
+ADD	PTCNST
+STA	PTSTN
+LDA	TRN
+STA	PTSTN	I
+REFRESHHLT,	BUN	REFRESH	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
 
 
@@ -461,7 +470,7 @@ ADD	PTSTN
 INC
 SZA
 BUN	CROSSLOOP2
-
+ISZ	TAFG
 /else 何も変えない
 CROSSHLT, BUN	CROSS	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
@@ -521,6 +530,7 @@ ADDRESS,	HEX 0
 	HEX 0
 FLAGR,	DEC -1
 FLAGL,	DEC -1
+TAFG,	DEC 0	/ type again flag
 CT,	DEC -2
 AD,	DEC 0
 C1,	DEC -49
@@ -533,6 +543,9 @@ X,	DEC 0
 Y,	DEC 8
 Z,	DEC 0
 KN,	DEC -16
+TA_MG,	SYS TA_MSG
+CNT_TA, DEC 18
+TA_MSG,
 P, DEC 0	/ M[P] = 0（初期化必要）
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
