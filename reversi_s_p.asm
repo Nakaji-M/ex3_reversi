@@ -1,19 +1,9 @@
 ORG	10
-LDA	A_PL_CNST
-STA	A_PL
-LDA	CNT_PL_CNST
-STA	CNT_PL
-
-CLA
-SIO
-
-MAINL1,	LDA	A_PL	I
-MAINL2, SKO	/ if(S_OUT ready) skip next
-BUN	MAINL2	/ goto SENDL2(P_OUT not ready)
-OUT
-ISZ	A_PL
-ISZ	CNT_PL
-BUN	MAINL1
+LDA	A_PL
+STA	MSG_A
+LDA	CNT_PL
+STA	MSG_CNT
+BSA	MSG
 
 MAINL3, SKI	/ if(S_IN ready) skip next
 BUN	MAINL3	/ goto L0 (S_IN not ready)
@@ -33,6 +23,10 @@ BUN	MAIN1
 MAIN1,
 BSA	O_ENTER	/改行
 BSA	RECEIVE
+LDA	PASS
+ADD	VM2
+SNA	/if(M[PASS]>=2)終了
+HLT
 
 MAIN2,
 BSA	O_ENTER	/改行
@@ -40,15 +34,40 @@ BSA	SEND
 
 LDA	PASS
 ADD	VM2
-SZA	/if(M[PASS]=2)ループを抜ける
+SPA	/if(M[PASS]>=2)ループを抜ける
 
 BUN	MAIN1
 
 HLT
 
 
+////////////////////////////////subroutine MESSAGE/////////////////////////////////////
+MSG, HEX	0
+CLA
+SIO
+
+MSGL1,	LDA	MSG_A	I
+MSGL2, SKO	/ if(S_OUT ready) skip next
+BUN	MSGL2	/ goto SENDL2(P_OUT not ready)
+OUT
+ISZ	MSG_A
+ISZ	MSG_CNT
+BUN	MSGL1
+
+BUN	MSG	I
+/////////////////////////////end of subroutine/////////////////////////////////////
+
+
+
 ////////////////////////////////subroutine INPUT/////////////////////////////////////
 INPUT,	HEX	0
+	LDA	A_IN
+	STA	MSG_A
+	LDA	CNT_IN
+	STA	MSG_CNT
+	BSA	MSG
+	BSA	O_ENTER
+
 	SIO
 	LDA	VM10
 	STA	K
@@ -370,10 +389,11 @@ BUN	REFRESH	I
 
 
 //////////////////////////////subroutine MUL///////////////////////////////////////////
-MUL, CLE
+MUL, HEX	0
+CLE
 CLA
 STA	Z
-MULL0, HEX	0
+MULL0,
 CLE	/ E <- 0
 LDA	Y	/ AC <- M[Y]
 SZA	/(AC==0)ならば次命令スキップ
@@ -504,17 +524,34 @@ TRN, DEC	1	/現在のターンは1と2のどちらか
 PTSTN, DEC	0	/今置かれた石の配列要素のアドレス
 PTTMP, DEC	0	/コンピュータが今見ている石の配列要素のアドレス
 PTCNST, SYM D / M[PT] = （ラベル D のアドレス、書き換え禁止）
-A_PL_CNST,	SYM PL
-A_PL,	SYM PL
-CNT_PL_CNST,DEC -6		/ CNT_BMG = -6
-CNT_PL,DEC -6		/ CNT_BMG = -6
-PL,
+MSG_A,	HEX	0
+MSG_CNT, HEX	0
+
+A_PL,	SYM STR_PL
+CNT_PL,DEC -7		/ CNT_BMG = -6
+STR_PL,
 CHR	P
 CHR	L
 CHR	1
 HEX	2F
 CHR	2
+CHR	?
 CHR	>
+
+A_IN,	SYM STR_IN
+CNT_IN,DEC -10		/ CNT_BMG = -6
+STR_IN,
+CHR	Y
+CHR	O
+CHR	U
+CHR	R
+HEX	20
+CHR	T
+CHR	U
+CHR	R
+CHR	N
+CHR	>
+
 P1,	SYM ADDRESS
 P1_CNST,	SYM ADDRESS
 ADDRESS,	HEX 0
