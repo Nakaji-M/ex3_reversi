@@ -175,9 +175,9 @@ BSA	TRNCNT
 
 BUN	SEND	I
 TYPE_AG, LDA	A_TA
-STA	A_MSG
+STA	MSG_A
 LDA	CNT_TA
-STA	CNT_MSG
+STA	MSG_CNT
 BSA	MSG
 BUN	SENDL0
 /////////////////////////////end of subroutine/////////////////////////////////////
