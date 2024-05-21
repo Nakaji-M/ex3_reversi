@@ -145,6 +145,7 @@ BUN	RECEIVE	I
 
 //////////////////////////////subroutine SEND/////////////////////////////////////
 SEND,	HEX	0
+SENDL0,
 BSA	INPUT
 BSA	O_ENTER	/改行
 
@@ -155,11 +156,12 @@ _B_,SZA
 BUN	SENDL1	/パスの場合SEND1まで飛ぶ
 
 BSA	REFRESH
-BSA	SHOW
-BSA	O_ENTER	/改行
 LDA	TAFG
 SZA
 BUN	TYPE_AG
+BSA	SHOW
+BSA	O_ENTER	/改行
+
 
 SENDL1, 
 /パラレル出力する
@@ -172,7 +174,12 @@ OUT
 BSA	TRNCNT
 
 BUN	SEND	I
-TYPE_AG,	
+TYPE_AG, LDA	TA_MSG
+STA	
+LDA	TA_CNT
+STA	
+MSG
+BUN	SENDL0
 /////////////////////////////end of subroutine/////////////////////////////////////
 
 
