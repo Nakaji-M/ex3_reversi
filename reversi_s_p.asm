@@ -186,6 +186,7 @@ BUN	RECEIVE	I
 
 //////////////////////////////subroutine SEND/////////////////////////////////////
 SEND,	HEX	0
+SENDL0,
 BSA	INPUT
 BSA	O_ENTER	/改行
 
@@ -196,8 +197,12 @@ _B_,SZA
 BUN	SENDL1	/パスの場合SEND1まで飛ぶ
 
 BSA	REFRESH
+LDA	TAFG
+SZA
+BUN	TYPE_AG
 BSA	SHOW
 BSA	O_ENTER	/改行
+
 
 SENDL1, 
 /パラレル出力する
@@ -210,6 +215,12 @@ OUT
 BSA	TRNCNT
 
 BUN	SEND	I
+TYPE_AG, LDA	A_INER
+STA	MSG_A
+LDA	CNT_INER
+STA	MSG_CNT
+BSA	MSG
+BUN	SENDL0
 /////////////////////////////end of subroutine/////////////////////////////////////
 
 
@@ -335,12 +346,8 @@ BUN	SHOW	I
 
 //////////////////////////////subroutine REFRESH/////////////////////////////////////
 REFRESH, HEX	0
-/とりあえず入力された石の部分だけ更新する
-LDA	STN
-ADD	PTCNST
-STA	PTSTN
-LDA	TRN
-STA	PTSTN	I
+CLA
+STA	TAFG
 //上方向
 LDA	VM8
 STA	GONUM
@@ -405,8 +412,17 @@ STA	BACKNUM
 LDA	VH7
 STA	EDGE
 BSA	CROSS
-
-BUN	REFRESH	I
+//
+LDA	TAFG
+SZA
+BUN	REFRESHHLT
+/とりあえず入力された石の部分だけ更新する
+LDA	STN
+ADD	PTCNST
+STA	PTSTN
+LDA	TRN
+STA	PTSTN	I
+REFRESHHLT,	BUN	REFRESH	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
 
 
@@ -503,7 +519,7 @@ ADD	PTSTN
 INC
 SZA
 BUN	CROSSLOOP2
-
+ISZ	TAFG
 /else 何も変えない
 CROSSHLT, BUN	CROSS	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
@@ -596,6 +612,7 @@ ADDRESS,	HEX 0
 	HEX 0
 FLAGR,	DEC -1
 FLAGL,	DEC -1
+TAFG,	DEC 0	/ type again flag
 CT,	DEC -2
 AD,	DEC 0
 C1,	DEC -49
