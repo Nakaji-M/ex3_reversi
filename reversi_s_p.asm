@@ -550,9 +550,6 @@ X,	DEC 0
 Y,	DEC 8
 Z,	DEC 0
 KN,	DEC -16
-TA_MG,	SYS TA_MSG
-CNT_TA, DEC 18
-TA_MSG,
 P, DEC 0	/ M[P] = 0（初期化必要）
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
