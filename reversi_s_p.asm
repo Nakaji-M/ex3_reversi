@@ -54,9 +54,11 @@ BUN	JUDGE	I
 JUDGEL1,
 ADD	D_SUM
 STA	D_SUM
+ISZ	PTTMP
 ISZ	J_CNT
+BUN	JUDGEL0
 
-BUN	MSG	I
+BUN	JUDGE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
 
 
