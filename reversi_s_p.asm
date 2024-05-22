@@ -75,7 +75,7 @@ SPA
 BUN	LOSE
 SZA
 BUN	WIN
-
+	//draw
 LOSE,
 
 WIN,
