@@ -57,6 +57,7 @@ STA	D_SUM
 ISZ	PTTMP
 ISZ	J_CNT
 BUN	JUDGEL0
+ADD	VM40
 
 BUN	JUDGE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
@@ -571,6 +572,7 @@ VH20, HEX	20
 VH7C, HEX	7C	/|
 VH30, HEX	30
 VH49, HEX	49
+VM40, HEX	-64
 VM41, DEC	-65
 BACKNUM, DEC	-8
 GONUM, DEC	8
