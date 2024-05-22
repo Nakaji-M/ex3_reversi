@@ -42,13 +42,19 @@ HLT
 
 ////////////////////////////////subroutine JUDGE/////////////////////////////////////
 JUDGE, HEX	0
+CLA
+STA	D_SUM
 LDA	PTCNST
 STA	PTTMP
-JUDGEL0,	LDA	PTTMP	I
+JUDGEL0,
+LDA	PTTMP	I
 SZA
 BUN	JUDGEL1
-
-JUDGEL1,s
+BUN	JUDGE	I
+JUDGEL1,
+ADD	D_SUM
+STA	D_SUM
+ISZ	J_CNT
 
 BUN	MSG	I
 /////////////////////////////end of subroutine/////////////////////////////////////
@@ -641,6 +647,7 @@ Y,	DEC 8
 Z,	DEC 0
 KN,	DEC -16
 J_CNT,	DEC -64
+D_SUM,	DEC 0
 P, DEC 0	/ M[P] = 0（初期化必要）
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
