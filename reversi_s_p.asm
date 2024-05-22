@@ -641,7 +641,6 @@ ADDRESS,	HEX 0
 	HEX 0
 FLAGR,	DEC -1
 FLAGL,	DEC -1
-TAFG,	DEC 0	/ type again flag
 CT,	DEC -2
 AD,	DEC 0
 C1,	DEC -49
@@ -656,6 +655,7 @@ X,	DEC 0
 Y,	DEC 8
 Z,	DEC 0
 KN,	DEC -16
+TAFG,	DEC 0	/ type again flag
 J_CNT,	DEC -64
 D_SUM,	DEC 0
 O_STN_SUM,	DEC 0
