@@ -58,6 +58,7 @@ ISZ	PTTMP
 ISZ	J_CNT
 BUN	JUDGEL0
 ADD	VM40
+ADD	VM20
 
 BUN	JUDGE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
@@ -572,7 +573,8 @@ VH20, HEX	20
 VH7C, HEX	7C	/|
 VH30, HEX	30
 VH49, HEX	49
-VM40, HEX	-64
+VM20, DEC	-32
+VM40, DEC	-64
 VM41, DEC	-65
 BACKNUM, DEC	-8
 GONUM, DEC	8
@@ -652,6 +654,8 @@ Z,	DEC 0
 KN,	DEC -16
 J_CNT,	DEC -64
 D_SUM,	DEC 0
+O_STN_SUM,	DEC 0
+T_STN_SUM	DEC 0
 P, DEC 0	/ M[P] = 0（初期化必要）
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
