@@ -58,7 +58,11 @@ ISZ	PTTMP
 ISZ	J_CNT
 BUN	JUDGEL0
 ADD	VM40
-ADD	VM20
+STA	T_STN_SUM
+VMA
+INC
+ADD	VH40
+STA	O_STN_SUM
 
 BUN	JUDGE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
