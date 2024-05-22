@@ -9,6 +9,7 @@ MAINL3, SKI	/ if(S_IN ready) skip next
 BUN	MAINL3	/ goto L0 (S_IN not ready)
 INP	/ AC(7:0) <- INPR
 ADD	VM31
+STA	PL
 SZA
 BUN	TOMAIN1
 BSA	O_ENTER
@@ -63,6 +64,12 @@ VMA
 INC
 ADD	VH40
 STA	O_STN_SUM
+LDA	PL
+SZA
+LDA	T_STN_SUM
+BUN	JUDGEL2
+LDA	O_STN_SUM
+JUDGEL2,
 
 BUN	JUDGE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
@@ -660,6 +667,7 @@ J_CNT,	DEC -64
 D_SUM,	DEC 0
 O_STN_SUM,	DEC 0
 T_STN_SUM	DEC 0
+PL,	DEC 0	/0:PL1,1:PL2
 P, DEC 0	/ M[P] = 0（初期化必要）
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
