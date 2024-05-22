@@ -44,6 +44,11 @@ HLT
 JUDGE, HEX	0
 LDA	PTCNST
 STA	PTTMP
+JUDGEL0,	LDA	PTTMP	I
+SZA
+BUN	JUDGEL1
+
+JUDGEL1,s
 
 BUN	MSG	I
 /////////////////////////////end of subroutine/////////////////////////////////////
