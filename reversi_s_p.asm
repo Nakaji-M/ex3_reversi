@@ -70,7 +70,10 @@ LDA	T_STN_SUM
 BUN	JUDGEL2
 LDA	O_STN_SUM
 JUDGEL2,
-
+ADD	VM20
+SPA
+BUN	LOSE
+BUN	WIN
 BUN	JUDGE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
 
