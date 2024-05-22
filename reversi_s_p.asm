@@ -73,7 +73,13 @@ JUDGEL2,
 ADD	VM20
 SPA
 BUN	LOSE
+SZA
 BUN	WIN
+
+LOSE,
+
+WIN,
+
 BUN	JUDGE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
 
