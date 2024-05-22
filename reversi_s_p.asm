@@ -42,16 +42,8 @@ HLT
 
 ////////////////////////////////subroutine JUDGE/////////////////////////////////////
 JUDGE, HEX	0
-CLA
-SIO
-
-MSGL1,	LDA	MSG_A	I
-MSGL2, SKO	/ if(S_OUT ready) skip next
-BUN	MSGL2	/ goto SENDL2(P_OUT not ready)
-OUT
-ISZ	MSG_A
-ISZ	MSG_CNT
-BUN	MSGL1
+LDA	PTCNST
+STA	PTTMP
 
 BUN	MSG	I
 /////////////////////////////end of subroutine/////////////////////////////////////
@@ -643,6 +635,7 @@ X,	DEC 0
 Y,	DEC 8
 Z,	DEC 0
 KN,	DEC -16
+J_CNT,	DEC -64
 P, DEC 0	/ M[P] = 0（初期化必要）
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
