@@ -534,6 +534,9 @@ CROSS, HEX	0
 /PTを石を置いた位置に相当する配列要素のアドレスとする
 LDA	PTSTN
 STA	PTTMP
+LDA	PTSTN	I
+SZA
+BUN	CROSSHLT
 CLA
 STA	CNT_CROSSLOOP
 /do{ i++; } while(STN-8i>= PTCNST(アンダーフロー配列範囲外) && STN-8i < PTCNST+64 (オーバーフロー配列範囲外) && D[STN-8i] != 0(まだ石が置かれてないマス) && D[STN-8i] != M[TRN](自分の色の石が置いてあるマス))
