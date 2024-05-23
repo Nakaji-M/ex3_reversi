@@ -9,7 +9,6 @@ MAINL3, SKI	/ if(S_IN ready) skip next
 BUN	MAINL3	/ goto L0 (S_IN not ready)
 INP	/ AC(7:0) <- INPR
 ADD	VM31
-STA	PL
 SZA
 BUN	TOMAIN1
 BSA	O_ENTER
@@ -257,7 +256,9 @@ BUN	SENDL1	/パスの場合SEND1まで飛ぶ
 BSA	REFRESH
 LDA	TAFG
 SZA
+BUN	SEND_SHOW
 BUN	TYPE_AG
+SEND_SHOW,
 BSA	SHOW
 BSA	O_ENTER	/改行
 
@@ -273,11 +274,20 @@ OUT
 BSA	TRNCNT
 
 BUN	SEND	I
-TYPE_AG, LDA	A_INER
+TYPE_AG,
+LDA	A_TA
 STA	MSG_A
-LDA	CNT_INER
+LDA	CNT_TA
 STA	MSG_CNT
 BSA	MSG
+BSA	O_ENTER
+
+LDA	A_INER
+STA	MSG_A
+LDA	CT_INER
+STA	MSG_CNT
+BSA	MSG
+BSA	O_ENTER
 BUN	SENDL0
 /////////////////////////////end of subroutine/////////////////////////////////////
 
@@ -471,16 +481,18 @@ LDA	VH7
 STA	EDGE
 BSA	CROSS
 //
-LDA	TAFG
+_B_,LDA	TAFG
 SZA
-BUN	REFRESHHLT
+BUN	REFRESHL1
+BUN	REFRESH	I
 /とりあえず入力された石の部分だけ更新する
+REFRESHL1,
 LDA	STN
 ADD	PTCNST
 STA	PTSTN
 LDA	TRN
 STA	PTSTN	I
-REFRESHHLT,	BUN	REFRESH	I
+BUN	REFRESH	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
 
 
@@ -665,6 +677,22 @@ INER,	CHR I
 	CHR A
 	CHR I
 	CHR N
+
+A_TA,	SYM TA
+CNT_TA,	DEC -13
+TA,	CHR I
+	CHR N	
+	CHR V
+	CHR A
+	CHR L
+	CHR I
+	CHR D
+	HEX 20
+	CHR P
+	CHR L
+	CHR A
+	CHR C
+	CHR E
 
 A_WIN,	SYM WIN
 CNT_WIN,	DEC -8
