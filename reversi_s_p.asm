@@ -256,9 +256,7 @@ BUN	SENDL1	/パスの場合SEND1まで飛ぶ
 BSA	REFRESH
 LDA	TAFG
 SZA
-BUN	SEND_SHOW
 BUN	TYPE_AG
-SEND_SHOW,
 BSA	SHOW
 BSA	O_ENTER	/改行
 
@@ -483,16 +481,14 @@ BSA	CROSS
 //
 _B_,LDA	TAFG
 SZA
-BUN	REFRESHL1
-BUN	REFRESH	I
+BUN	REFRESHHLT
 /とりあえず入力された石の部分だけ更新する
-REFRESHL1,
 LDA	STN
 ADD	PTCNST
 STA	PTSTN
 LDA	TRN
 STA	PTSTN	I
-BUN	REFRESH	I
+REFRESHHLT,	BUN	REFRESH	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
 
 
