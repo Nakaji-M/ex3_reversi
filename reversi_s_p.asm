@@ -27,7 +27,7 @@ BSA	CHECKMATE
 LDA	PASS
 ADD	VM2
 SNA	/if(M[PASS]>=2)終了
-HLT
+BUN	MAIN_HLT
 
 MAIN2,
 BSA	O_ENTER	/改行
@@ -38,7 +38,8 @@ ADD	VM2
 SPA	/if(M[PASS]>=2)ループを抜ける
 
 BUN	MAIN1
-
+MAIN_HLT,
+BSA	JUDGE
 HLT
 
 ////////////////////////////////subroutine CHECKMATE/////////////////////////////////////
@@ -91,33 +92,66 @@ BUN	CHECKMATE I
 ////////////////////////////////subroutine JUDGE/////////////////////////////////////
 JUDGE, HEX	0
 CLA
-STA	D_SUM
+STA	O_STN_SUM
+STA	T_STN_SUM
 LDA	PTCNST
 STA	PTTMP
 JUDGEL0,
 LDA	PTTMP	I
-SZA
+ADD	VM1
+SPA
 BUN	JUDGEL1
-BUN	JUDGE	I
+SZA
+BUN	T_CNT
+ISZ	O_STN_SUM
+BUN	JUDGEL1
+T_CNT,
+ISZ	T_STN_SUM
 JUDGEL1,
-ADD	D_SUM
-STA	D_SUM
 ISZ	PTTMP
 ISZ	J_CNT
 BUN	JUDGEL0
-ADD	VM40
-STA	T_STN_SUM
-CMA
-INC
-ADD	VH40
-STA	O_STN_SUM
+LDA	A_PL1_SUM_CNST
+STA	A_PL1_SUM
+LDA	A_PL2_SUM_CNST
+STA	A_PL2_SUM
+//display PL1,PL2 STN_SUM
+LDA	O_STN_SUM
+BSA	HTOD
+LDA	Z
+STA	A_PL1_SUM	I
+ISZ	A_PL1_SUM
+LDA	X
+STA	A_PL1_SUM	I
+LDA	T_STN_SUM
+BSA	HTOD
+LDA	Z
+STA	A_PL2_SUM	I
+ISZ	A_PL2_SUM
+LDA	X
+STA	A_PL2_SUM	I
+LDA	A_STN_SUM
+STA	MSG_A
+LDA	CNT_STN_SUM
+STA	MSG_CNT
+BSA	MSG
+BSA	O_ENTER
+
 LDA	PL
 SZA
+BUN	T_JUDGE
+//PL1
 LDA	T_STN_SUM
+CMA
+INC
+ADD	O_STN_SUM
 BUN	JUDGEL2
+T_JUDGE,	//PL2
 LDA	O_STN_SUM
+CMA
+INC
+ADD	T_STN_SUM
 JUDGEL2,
-ADD	VM20
 SPA
 BUN	LOSE
 SZA
@@ -144,6 +178,7 @@ JUDGEL3,
 BSA	MSG
 BUN	JUDGE	I
 /////////////////////////////end of subroutine/////////////////////////////////////
+
 
 
 ////////////////////////////////subroutine MESSAGE/////////////////////////////////////
@@ -576,6 +611,32 @@ CLE	/ E <- 0
 BUN	LX	/ goto LX
 //////////////////////////////end of subroutine////////////////////////////////////
 
+
+//////////////////////////////subroutine HTOD///////////////////////////////////////////
+HTOD, HEX	0
+//arg0 : AC
+STA	X
+CLA
+STA	Z
+LDA	X
+HTODL0,
+ADD	VMA
+SZE
+BUN	HTODL1
+ADD	VHA
+ADD	VH30
+STA	X
+LDA	Z
+ADD	VH30
+STA	Z
+BUN	HTOD	I
+HTODL1,
+ISZ	Z
+BUN	HTODL0
+//////////////////////////////end of subroutine////////////////////////////////////
+
+
+
 //////////////////////////////subroutine CROSS/////////////////////////////////////
 /上方向を考える
 CROSS, HEX	0
@@ -757,6 +818,27 @@ TA,	CHR I
 	CHR C
 	CHR E
 
+
+A_STN_SUM,	SYM MSG_STN_SUM
+A_PL1_SUM_CNST,	SYM PL1_SUM
+A_PL2_SUM_CNST,	SYM PL2_SUM
+A_PL1_SUM,	SYM PL1_SUM
+A_PL2_SUM,	SYM PL2_SUM
+CNT_STN_SUM,	DEC -13
+MSG_STN_SUM,	CHR P
+	CHR L
+	CHR 1
+	HEX 3A
+PL1_SUM,	HEX 0
+	HEX 0
+	HEX 20
+	CHR P
+	CHR L
+	CHR 2
+	HEX 3A
+PL2_SUM,	HEX 0
+	HEX 0
+
 A_WIN,	SYM MSG_WIN
 CNT_WIN,	DEC -8
 MSG_WIN,	CHR Y
@@ -807,7 +889,6 @@ Z,	DEC 0
 KN,	DEC -16
 TAFG,	DEC 0	/ type again flag
 J_CNT,	DEC -64
-D_SUM,	DEC 0
 O_STN_SUM,	DEC 0
 T_STN_SUM,	DEC 0
 PL,	DEC 0	/0:PL1,1:PL2
