@@ -46,6 +46,37 @@ MAIN_HLT,
 BSA	JUDGE
 HLT
 
+////////////////////////////////subroutine RESET/////////////////////////////////////
+RESET,	HEX 0
+LDA	VM40
+STA	RESETCT
+LDA	A_D_CNST
+STA	A_D
+LDA	VH0
+RESETL0,
+STA	A_D I
+ISZ	A_D
+ISZ	RESETCT
+BUN	RESETL0
+LDA	A_D_CNST
+ADD	VH27
+STA	A_D
+LDA	VH2
+STA	A_D I
+ISZ	A_D
+LDA	VH1
+STA	A_D I
+LDA	A_D
+ADD	VH7
+STA	A_D
+LDA	VH1
+STA	A_D I
+ISZ	A_D
+LDA	VH2
+STA	A_D I
+BUN	RESET I
+/////////////////////////////end of subroutine/////////////////////////////////////
+
 ////////////////////////////////subroutine CHECKMATE/////////////////////////////////////
 CHECKMATE,	HEX 0
 CLA
@@ -727,6 +758,7 @@ CROSSHLT, BUN	CROSS	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
 
 //データ
+VH0, DEC	0
 VH1, DEC	1
 VM1, DEC	-1
 VH7, DEC	7
@@ -738,6 +770,7 @@ VM2, DEC	-2
 VH3, HEX	3
 VH9, DEC	9
 VM9, DEC	-9
+VH27, DEC	27
 VH24, HEX	24
 VH2A, HEX	2A
 VH40, HEX	40	/10進数で64
@@ -906,6 +939,8 @@ O_STN_SUM,	DEC 0
 T_STN_SUM,	DEC 0
 PL,	DEC 0	/0:PL1,1:PL2
 P, DEC 0	/ M[P] = 0（初期化必要）
+A_D,	SYM D
+A_D_CNST,	SYM D
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
    DEC 0	/ D[2]
