@@ -1,4 +1,7 @@
 ORG	10
+LDA	VM40
+STA	TRN_SUM
+
 LDA	A_PL
 STA	MSG_A
 LDA	CNT_PL
@@ -49,6 +52,9 @@ LDA	PTCNST
 STA	PTTMP
 LDA	VM40
 STA	CHECKCT
+LDA	PASS
+SZA
+BUN	FULL
 
 CHECKMATEL0,
 LDA	PTTMP I
@@ -81,6 +87,11 @@ BUN 	CHECKMATE I
 ISZ 	PTTMP
 ISZ	CHECKCT
 BUN CHECKMATEL2
+
+FULL,
+ISZ	TRN_SUM
+BUN	CHECKMATEL0
+BUN	CHECKHLT
 
 CHECKHLT,
 LDA	VH2
@@ -755,6 +766,7 @@ K, DEC		0	/for文のint i
 L, DEC		0	/for文のint i
 STN, DEC	0	/Stone.今置かれた石の通し番号
 TRN, DEC	1	/現在のターンは1と2のどちらか
+TRN_SUM, DEC	0
 PTSTN, DEC	0	/今置かれた石の配列要素のアドレス
 PTTMP, DEC	0	/コンピュータが今見ている石の配列要素のアドレス
 PTCNST, SYM D / M[PT] = （ラベル D のアドレス、書き換え禁止）
