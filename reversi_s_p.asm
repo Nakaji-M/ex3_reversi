@@ -12,6 +12,7 @@ MAINL3, SKI	/ if(S_IN ready) skip next
 BUN	MAINL3	/ goto L0 (S_IN not ready)
 INP	/ AC(7:0) <- INPR
 ADD	VM31
+STA	PL
 SZA
 BUN	TOMAIN1
 BSA	O_ENTER
