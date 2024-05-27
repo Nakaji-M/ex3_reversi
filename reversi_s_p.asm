@@ -1,9 +1,6 @@
 ORG	10
 BSA	RESET
 
-LDA	VM40
-STA	TRN_SUM
-
 LDA	A_INTRO
 STA	MSG_A
 LDA	CNT_INTRO
@@ -57,6 +54,7 @@ HLT
 ////////////////////////////////subroutine RESET/////////////////////////////////////
 RESET,	HEX 0
 LDA	VM40
+STA	TRN_SUM
 STA	RESETCT
 LDA	A_D_CNST
 STA	A_D
