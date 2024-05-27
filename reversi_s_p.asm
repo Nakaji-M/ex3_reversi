@@ -2,11 +2,19 @@ ORG	10
 LDA	VM40
 STA	TRN_SUM
 
+LDA	A_INTRO
+STA	MSG_A
+LDA	CNT_INTRO
+STA	MSG_CNT
+BSA	MSG
+
 LDA	A_PL
 STA	MSG_A
 LDA	CNT_PL
 STA	MSG_CNT
 BSA	MSG
+
+BSA	RESET
 
 MAINL3, SKI	/ if(S_IN ready) skip next
 BUN	MAINL3	/ goto L0 (S_IN not ready)
@@ -45,6 +53,38 @@ BUN	MAIN1
 MAIN_HLT,
 BSA	JUDGE
 HLT
+
+////////////////////////////////subroutine RESET/////////////////////////////////////
+RESET,	HEX 0
+LDA	VM40
+STA	RESETCT
+LDA	A_D_CNST
+STA	A_D
+LDA	VH0
+RESETL0,
+STA	A_D I
+ISZ	A_D
+ISZ	RESETCT
+BUN	RESETL0
+LDA	A_D_CNST
+ADD	VH27
+STA	A_D
+LDA	VH2
+STA	A_D I
+ISZ	A_D
+LDA	VH1
+STA	A_D I
+LDA	A_D
+ADD	VH7
+STA	A_D
+LDA	VH1
+STA	A_D I
+ISZ	A_D
+LDA	VH2
+STA	A_D I
+BUN	RESET I
+/////////////////////////////end of subroutine/////////////////////////////////////
+
 
 ////////////////////////////////subroutine CHECKMATE/////////////////////////////////////
 CHECKMATE,	HEX 0
@@ -730,6 +770,7 @@ CROSSHLT, BUN	CROSS	I
 /////////////////////////////////end of subroutine/////////////////////////////////////
 
 //データ
+VH0, DEC	0
 VH1, DEC	1
 VM1, DEC	-1
 VH7, DEC	7
@@ -741,6 +782,7 @@ VM2, DEC	-2
 VH3, HEX	3
 VH9, DEC	9
 VM9, DEC	-9
+VH27, DEC	27
 VH24, HEX	24
 VH2A, HEX	2A
 VH40, HEX	40	/10進数で64
@@ -762,6 +804,7 @@ VM41, DEC	-65
 CNT_CROSSLOOP, DEC	0
 CHECKCT, DEC 	0
 CHECKFLG, DEC	0
+RESETCT, DEC 	0
 BACKNUM, DEC	-8
 GONUM, DEC	8
 EDGE, DEC	0
@@ -776,6 +819,22 @@ PTTMP, DEC	0	/コンピュータが今見ている石の配列要素のアドレ
 PTCNST, SYM D / M[PT] = （ラベル D のアドレス、書き換え禁止）
 MSG_A,	HEX	0
 MSG_CNT, HEX	0
+
+A_INTRO, SYM STR_INTRO
+CNT_INTRO, DEC -12
+STR_INTRO,
+HEX	2D
+HEX	2D
+CHR	R
+CHR	E
+CHR	V
+CHR	E
+CHR	R
+CHR	S
+CHR	I
+HEX	2D
+HEX	2D
+HEX	0A
 
 A_PL,	SYM STR_PL
 CNT_PL,DEC -7		/ CNT_BMG = -6
@@ -909,6 +968,8 @@ O_STN_SUM,	DEC 0
 T_STN_SUM,	DEC 0
 PL,	DEC 0	/0:PL1,1:PL2
 P, DEC 0	/ M[P] = 0（初期化必要）
+A_D, SYM D
+A_D_CNST, SYM D
 D, HEX 0 	/ D[0]
    DEC 0	/ D[1]
    DEC 0	/ D[2]
