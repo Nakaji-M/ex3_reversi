@@ -1,4 +1,6 @@
 ORG	10
+BSA	RESET
+
 LDA	VM40
 STA	TRN_SUM
 
@@ -13,8 +15,6 @@ STA	MSG_A
 LDA	CNT_PL
 STA	MSG_CNT
 BSA	MSG
-
-BSA	RESET
 
 MAINL3, SKI	/ if(S_IN ready) skip next
 BUN	MAINL3	/ goto L0 (S_IN not ready)
