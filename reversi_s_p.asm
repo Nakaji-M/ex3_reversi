@@ -104,6 +104,8 @@ BUN	CHECKMATE I
 
 ////////////////////////////////subroutine JUDGE/////////////////////////////////////
 JUDGE, HEX	0
+LDA	VM40
+STA	J_CNT
 CLA
 STA	O_STN_SUM
 STA	T_STN_SUM
