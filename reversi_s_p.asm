@@ -53,7 +53,7 @@ HLT
 
 ////////////////////////////////subroutine RESET/////////////////////////////////////
 RESET,	HEX 0
-LDA	VM40
+LDA	VM3C
 STA	TRN_SUM
 STA	RESETCT
 LDA	A_D_CNST
@@ -951,6 +951,7 @@ VM31, DEC	-49
 VH20, HEX	20
 VH7C, HEX	7C	/|
 VH30, HEX	30
+VM3C, DEC	-60
 VH49, HEX	49
 VM20, DEC	-32
 VM40, DEC	-64
