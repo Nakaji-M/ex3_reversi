@@ -538,7 +538,7 @@ ISZ	L
 BUN	WSOUT2
 BSA	O_ENTER
 
-SHOWLOOP1, LDA	VH9	/必要無いがラベルを付けるため
+SHOWLOOP1, LDA	VH9
 ADD	K
 ADD	VH30
 SKO
@@ -561,23 +561,20 @@ ADD	VH24	/(M[PTTMP] - 1 = 1 つまりM[PTTMP] = 2 )またはM[PTTMP] = 0
 ADD	VH2A	/M[PTTMP] = 1のとき1+VM1+VH2A=VH2A=*, M[PTTMP] = 2のとき2+VM1+VH24+VH2A=VH4F=O, M[PTTMP] = 0のとき0+VM1+VM2E+VH24+VH2A=VH20
 
 SHOWL1, SKO	/ if(S_OUT ready) skip next
-BUN SHOWL1	/ goto SHOWLOOP(S_OUT not ready)
+BUN SHOWL1	/ goto SHOWL1(S_OUT not ready)
 OUT	/ OUTR <- AC(7:0)
 
 LDA	VH7C
 
 SHOWL2, SKO	/ if(S_OUT ready) skip next
-BUN SHOWL2	/ goto SHOWLOOP(S_OUT not ready)
+BUN SHOWL2	/ goto SHOWL2(S_OUT not ready)
 OUT	/ OUTR <- AC(7:0)
 
 ISZ	PTTMP	/スキップされることはない
 ISZ	L	/SHOWLOOP2を抜けるか判定
 BUN	SHOWLOOP2
 
-LDA	VHA
-SHOWL3, SKO	/ if(S_OUT ready) skip next
-BUN SHOWL3	/ goto SHOWLOOP(S_OUT not ready)
-OUT	/ OUTR <- AC(7:0)
+BSA	O_ENTER
 
 ISZ	K
 BUN	SHOWLOOP1
