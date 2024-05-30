@@ -192,14 +192,14 @@ LDA	A_PL2_SUM_CNST
 STA	A_PL2_SUM
 //display PL1,PL2 STN_SUM
 LDA	O_STN_SUM
-BSA	HTOD
+BSA	BTOD
 LDA	Z
 STA	A_PL1_SUM	I
 ISZ	A_PL1_SUM
 LDA	X
 STA	A_PL1_SUM	I
 LDA	T_STN_SUM
-BSA	HTOD
+BSA	BTOD
 LDA	Z
 STA	A_PL2_SUM	I
 ISZ	A_PL2_SUM
@@ -703,27 +703,27 @@ BUN	LX	/ goto LX
 //////////////////////////////end of subroutine////////////////////////////////////
 
 
-//////////////////////////////subroutine HTOD///////////////////////////////////////////
-HTOD, HEX	0
+//////////////////////////////subroutine BTOD///////////////////////////////////////////
+BTOD, HEX	0
 //arg0 : AC
 STA	X
 CLA
 STA	Z
 LDA	X
-HTODL0,
+BTODL0,
 ADD	VMA
 SZE
-BUN	HTODL1
+BUN	BTODL1
 ADD	VHA
 ADD	VH30
 STA	X
 LDA	Z
 ADD	VH30
 STA	Z
-BUN	HTOD	I
-HTODL1,
+BUN	BTOD	I
+BTODL1,
 ISZ	Z
-BUN	HTODL0
+BUN	BTODL0
 //////////////////////////////end of subroutine////////////////////////////////////
 
 //////////////////////////////subroutine COM///////////////////////////////////////////
