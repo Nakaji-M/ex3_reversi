@@ -18,9 +18,9 @@
 @01c 401b	///                001c [401b]: BUN 01b   (        INP_GM)
 @01d f800	///                001d [f800]: INP                       
 @01e 1384	///                001e [1384]: ADD 384   (          VM30)
-@01f 34af	///                001f [34af]: STA 4af   (            GM)
+@01f 34b0	///                001f [34b0]: STA 4b0   (            GM)
 @020 518d	///                0020 [518d]: BSA 18d   (       O_ENTER)
-@021 24af	///                0021 [24af]: LDA 4af   (            GM)
+@021 24b0	///                0021 [24b0]: LDA 4b0   (            GM)
 @022 7004	///                0022 [7004]: SZA                       
 @023 4030	///                0023 [4030]: BUN 030   (        INP_PL)
 @024 240e	///                0024 [240e]: LDA 40e   (         A_DIF)
@@ -32,7 +32,7 @@
 @02a 4029	///                002a [4029]: BUN 029   (       INP_DIF)
 @02b f800	///                002b [f800]: INP                       
 @02c 1384	///                002c [1384]: ADD 384   (          VM30)
-@02d 34a1	///                002d [34a1]: STA 4a1   (           DIF)
+@02d 34a2	///                002d [34a2]: STA 4a2   (           DIF)
 @02e 518d	///                002e [518d]: BSA 18d   (       O_ENTER)
 @02f 403c	///                002f [403c]: BUN 03c   (           PL1)
 @030 2422	///        INP_PL: 0030 [2422]: LDA 422   (          A_PL)
@@ -44,7 +44,7 @@
 @036 4035	///                0036 [4035]: BUN 035   (        MAINL3)	// goto L0 (S_IN not ready)
 @037 f800	///                0037 [f800]: INP                       	// AC(7:0) <- INPR
 @038 1385	///                0038 [1385]: ADD 385   (          VM31)
-@039 34ae	///                0039 [34ae]: STA 4ae   (            PL)
+@039 34af	///                0039 [34af]: STA 4af   (            PL)
 @03a 7004	///                003a [7004]: SZA                       
 @03b 403f	///                003b [403f]: BUN 03f   (       TOMAIN1)
 @03c 518d	///           PL1: 003c [518d]: BSA 18d   (       O_ENTER)
@@ -77,30 +77,30 @@
 @055 238e	///                0055 [238e]: LDA 38e   (          VM40)
 @056 3393	///                0056 [3393]: STA 393   (       RESETCT)
 @057 7800	///                0057 [7800]: CLA                       
-@058 34ae	///                0058 [34ae]: STA 4ae   (            PL)
-@059 24b3	///                0059 [24b3]: LDA 4b3   (      A_D_CNST)
-@05a 34b2	///                005a [34b2]: STA 4b2   (           A_D)
+@058 34af	///                0058 [34af]: STA 4af   (            PL)
+@059 24b4	///                0059 [24b4]: LDA 4b4   (      A_D_CNST)
+@05a 34b3	///                005a [34b3]: STA 4b3   (           A_D)
 @05b 236d	///                005b [236d]: LDA 36d   (           VH0)
-@05c b4b2	///       RESETL0: 005c [b4b2]: STA 4b2 I (           A_D)
-@05d 64b2	///                005d [64b2]: ISZ 4b2   (           A_D)
+@05c b4b3	///       RESETL0: 005c [b4b3]: STA 4b3 I (           A_D)
+@05d 64b3	///                005d [64b3]: ISZ 4b3   (           A_D)
 @05e 6393	///                005e [6393]: ISZ 393   (       RESETCT)
 @05f 405c	///                005f [405c]: BUN 05c   (       RESETL0)
-@060 24b3	///                0060 [24b3]: LDA 4b3   (      A_D_CNST)
+@060 24b4	///                0060 [24b4]: LDA 4b4   (      A_D_CNST)
 @061 1379	///                0061 [1379]: ADD 379   (          VH27)
-@062 34b2	///                0062 [34b2]: STA 4b2   (           A_D)
+@062 34b3	///                0062 [34b3]: STA 4b3   (           A_D)
 @063 2374	///                0063 [2374]: LDA 374   (           VH2)
-@064 b4b2	///                0064 [b4b2]: STA 4b2 I (           A_D)
-@065 64b2	///                0065 [64b2]: ISZ 4b2   (           A_D)
+@064 b4b3	///                0064 [b4b3]: STA 4b3 I (           A_D)
+@065 64b3	///                0065 [64b3]: ISZ 4b3   (           A_D)
 @066 236e	///                0066 [236e]: LDA 36e   (           VH1)
-@067 b4b2	///                0067 [b4b2]: STA 4b2 I (           A_D)
-@068 24b2	///                0068 [24b2]: LDA 4b2   (           A_D)
+@067 b4b3	///                0067 [b4b3]: STA 4b3 I (           A_D)
+@068 24b3	///                0068 [24b3]: LDA 4b3   (           A_D)
 @069 1370	///                0069 [1370]: ADD 370   (           VH7)
-@06a 34b2	///                006a [34b2]: STA 4b2   (           A_D)
+@06a 34b3	///                006a [34b3]: STA 4b3   (           A_D)
 @06b 236e	///                006b [236e]: LDA 36e   (           VH1)
-@06c b4b2	///                006c [b4b2]: STA 4b2 I (           A_D)
-@06d 64b2	///                006d [64b2]: ISZ 4b2   (           A_D)
+@06c b4b3	///                006c [b4b3]: STA 4b3 I (           A_D)
+@06d 64b3	///                006d [64b3]: ISZ 4b3   (           A_D)
 @06e 2374	///                006e [2374]: LDA 374   (           VH2)
-@06f b4b2	///                006f [b4b2]: STA 4b2 I (           A_D)
+@06f b4b3	///                006f [b4b3]: STA 4b3 I (           A_D)
 @070 c052	///                0070 [c052]: BUN 052 I (         RESET)
 //////////////////////////////end of subroutine/////////////////////////////////////
 /////////////////////////////////subroutine CHECKMATE/////////////////////////////////////
@@ -148,10 +148,10 @@
 /////////////////////////////////subroutine JUDGE/////////////////////////////////////
 @099 0000	///         JUDGE: 0099 [0000]: (    0:    0)               
 @09a 238e	///                009a [238e]: LDA 38e   (          VM40)
-@09b 34aa	///                009b [34aa]: STA 4aa   (         J_CNT)
+@09b 34ab	///                009b [34ab]: STA 4ab   (         J_CNT)
 @09c 7800	///                009c [7800]: CLA                       
-@09d 34ac	///                009d [34ac]: STA 4ac   (     O_STN_SUM)
-@09e 34ad	///                009e [34ad]: STA 4ad   (     T_STN_SUM)
+@09d 34ad	///                009d [34ad]: STA 4ad   (     O_STN_SUM)
+@09e 34ae	///                009e [34ae]: STA 4ae   (     T_STN_SUM)
 @09f 23a0	///                009f [23a0]: LDA 3a0   (        PTCNST)
 @0a0 339e	///                00a0 [339e]: STA 39e   (         PTTMP)
 @0a1 a39e	///       JUDGEL0: 00a1 [a39e]: LDA 39e I (         PTTMP)
@@ -160,73 +160,73 @@
 @0a4 40aa	///                00a4 [40aa]: BUN 0aa   (       JUDGEL1)
 @0a5 7004	///                00a5 [7004]: SZA                       
 @0a6 40a9	///                00a6 [40a9]: BUN 0a9   (         T_CNT)
-@0a7 64ac	///                00a7 [64ac]: ISZ 4ac   (     O_STN_SUM)
+@0a7 64ad	///                00a7 [64ad]: ISZ 4ad   (     O_STN_SUM)
 @0a8 40aa	///                00a8 [40aa]: BUN 0aa   (       JUDGEL1)
-@0a9 64ad	///         T_CNT: 00a9 [64ad]: ISZ 4ad   (     T_STN_SUM)
+@0a9 64ae	///         T_CNT: 00a9 [64ae]: ISZ 4ae   (     T_STN_SUM)
 @0aa 639e	///       JUDGEL1: 00aa [639e]: ISZ 39e   (         PTTMP)
-@0ab 64aa	///                00ab [64aa]: ISZ 4aa   (         J_CNT)
+@0ab 64ab	///                00ab [64ab]: ISZ 4ab   (         J_CNT)
 @0ac 40a1	///                00ac [40a1]: BUN 0a1   (       JUDGEL0)
-@0ad 2461	///                00ad [2461]: LDA 461   (A_PL1_SUM_CNST)
-@0ae 3463	///                00ae [3463]: STA 463   (     A_PL1_SUM)
-@0af 2462	///                00af [2462]: LDA 462   (A_PL2_SUM_CNST)
-@0b0 3464	///                00b0 [3464]: STA 464   (     A_PL2_SUM)
+@0ad 2462	///                00ad [2462]: LDA 462   (A_PL1_SUM_CNST)
+@0ae 3464	///                00ae [3464]: STA 464   (     A_PL1_SUM)
+@0af 2463	///                00af [2463]: LDA 463   (A_PL2_SUM_CNST)
+@0b0 3465	///                00b0 [3465]: STA 465   (     A_PL2_SUM)
 ///display PL1,PL2 STN_SUM
-@0b1 24ac	///                00b1 [24ac]: LDA 4ac   (     O_STN_SUM)
+@0b1 24ad	///                00b1 [24ad]: LDA 4ad   (     O_STN_SUM)
 @0b2 523d	///                00b2 [523d]: BSA 23d   (          BTOD)
-@0b3 249f	///                00b3 [249f]: LDA 49f   (             Z)
-@0b4 b463	///                00b4 [b463]: STA 463 I (     A_PL1_SUM)
-@0b5 6463	///                00b5 [6463]: ISZ 463   (     A_PL1_SUM)
-@0b6 249d	///                00b6 [249d]: LDA 49d   (             X)
-@0b7 b463	///                00b7 [b463]: STA 463 I (     A_PL1_SUM)
-@0b8 24ad	///                00b8 [24ad]: LDA 4ad   (     T_STN_SUM)
+@0b3 24a0	///                00b3 [24a0]: LDA 4a0   (             Z)
+@0b4 b464	///                00b4 [b464]: STA 464 I (     A_PL1_SUM)
+@0b5 6464	///                00b5 [6464]: ISZ 464   (     A_PL1_SUM)
+@0b6 249e	///                00b6 [249e]: LDA 49e   (             X)
+@0b7 b464	///                00b7 [b464]: STA 464 I (     A_PL1_SUM)
+@0b8 24ae	///                00b8 [24ae]: LDA 4ae   (     T_STN_SUM)
 @0b9 523d	///                00b9 [523d]: BSA 23d   (          BTOD)
-@0ba 249f	///                00ba [249f]: LDA 49f   (             Z)
-@0bb b464	///                00bb [b464]: STA 464 I (     A_PL2_SUM)
-@0bc 6464	///                00bc [6464]: ISZ 464   (     A_PL2_SUM)
-@0bd 249d	///                00bd [249d]: LDA 49d   (             X)
-@0be b464	///                00be [b464]: STA 464 I (     A_PL2_SUM)
-@0bf 2460	///                00bf [2460]: LDA 460   (     A_STN_SUM)
+@0ba 24a0	///                00ba [24a0]: LDA 4a0   (             Z)
+@0bb b465	///                00bb [b465]: STA 465 I (     A_PL2_SUM)
+@0bc 6465	///                00bc [6465]: ISZ 465   (     A_PL2_SUM)
+@0bd 249e	///                00bd [249e]: LDA 49e   (             X)
+@0be b465	///                00be [b465]: STA 465 I (     A_PL2_SUM)
+@0bf 2461	///                00bf [2461]: LDA 461   (     A_STN_SUM)
 @0c0 33a1	///                00c0 [33a1]: STA 3a1   (         MSG_A)
-@0c1 2465	///                00c1 [2465]: LDA 465   (   CNT_STN_SUM)
+@0c1 2466	///                00c1 [2466]: LDA 466   (   CNT_STN_SUM)
 @0c2 33a2	///                00c2 [33a2]: STA 3a2   (       MSG_CNT)
 @0c3 50ea	///                00c3 [50ea]: BSA 0ea   (           MSG)
 @0c4 518d	///                00c4 [518d]: BSA 18d   (       O_ENTER)
-@0c5 24ae	///                00c5 [24ae]: LDA 4ae   (            PL)
+@0c5 24af	///                00c5 [24af]: LDA 4af   (            PL)
 @0c6 7004	///                00c6 [7004]: SZA                       
 @0c7 40cf	///                00c7 [40cf]: BUN 0cf   (       T_JUDGE)
 ///PL1
-@0c8 24ac	///                00c8 [24ac]: LDA 4ac   (     O_STN_SUM)
+@0c8 24ad	///                00c8 [24ad]: LDA 4ad   (     O_STN_SUM)
 @0c9 7c00	///                00c9 [7c00]: LON                       
-@0ca 24ad	///                00ca [24ad]: LDA 4ad   (     T_STN_SUM)
+@0ca 24ae	///                00ca [24ae]: LDA 4ae   (     T_STN_SUM)
 @0cb 7200	///                00cb [7200]: CMA                       
 @0cc 7020	///                00cc [7020]: INC                       
-@0cd 14ac	///                00cd [14ac]: ADD 4ac   (     O_STN_SUM)
+@0cd 14ad	///                00cd [14ad]: ADD 4ad   (     O_STN_SUM)
 @0ce 40d5	///                00ce [40d5]: BUN 0d5   (       JUDGEL2)
 ///PL2
-@0cf 24ad	///       T_JUDGE: 00cf [24ad]: LDA 4ad   (     T_STN_SUM)
+@0cf 24ae	///       T_JUDGE: 00cf [24ae]: LDA 4ae   (     T_STN_SUM)
 @0d0 7c00	///                00d0 [7c00]: LON                       
-@0d1 24ac	///                00d1 [24ac]: LDA 4ac   (     O_STN_SUM)
+@0d1 24ad	///                00d1 [24ad]: LDA 4ad   (     O_STN_SUM)
 @0d2 7200	///                00d2 [7200]: CMA                       
 @0d3 7020	///                00d3 [7020]: INC                       
-@0d4 14ad	///                00d4 [14ad]: ADD 4ad   (     T_STN_SUM)
+@0d4 14ae	///                00d4 [14ae]: ADD 4ae   (     T_STN_SUM)
 @0d5 7010	///       JUDGEL2: 00d5 [7010]: SPA                       
 @0d6 40de	///                00d6 [40de]: BUN 0de   (          LOSE)
 @0d7 7004	///                00d7 [7004]: SZA                       
 @0d8 40e3	///                00d8 [40e3]: BUN 0e3   (           WIN)
 ///draw
-@0d9 2487	///                00d9 [2487]: LDA 487   (        A_DRAW)
+@0d9 2488	///                00d9 [2488]: LDA 488   (        A_DRAW)
 @0da 33a1	///                00da [33a1]: STA 3a1   (         MSG_A)
-@0db 2488	///                00db [2488]: LDA 488   (      CNT_DRAW)
+@0db 2489	///                00db [2489]: LDA 489   (      CNT_DRAW)
 @0dc 33a2	///                00dc [33a2]: STA 3a2   (       MSG_CNT)
 @0dd 40e8	///                00dd [40e8]: BUN 0e8   (       JUDGEL3)
-@0de 247d	///          LOSE: 00de [247d]: LDA 47d   (        A_LOSE)
+@0de 247e	///          LOSE: 00de [247e]: LDA 47e   (        A_LOSE)
 @0df 33a1	///                00df [33a1]: STA 3a1   (         MSG_A)
-@0e0 247e	///                00e0 [247e]: LDA 47e   (      CNT_LOSE)
+@0e0 247f	///                00e0 [247f]: LDA 47f   (      CNT_LOSE)
 @0e1 33a2	///                00e1 [33a2]: STA 3a2   (       MSG_CNT)
 @0e2 40e8	///                00e2 [40e8]: BUN 0e8   (       JUDGEL3)
-@0e3 2473	///           WIN: 00e3 [2473]: LDA 473   (         A_WIN)
+@0e3 2474	///           WIN: 00e3 [2474]: LDA 474   (         A_WIN)
 @0e4 33a1	///                00e4 [33a1]: STA 3a1   (         MSG_A)
-@0e5 2474	///                00e5 [2474]: LDA 474   (       CNT_WIN)
+@0e5 2475	///                00e5 [2475]: LDA 475   (       CNT_WIN)
 @0e6 33a2	///                00e6 [33a2]: STA 3a2   (       MSG_CNT)
 @0e7 40e8	///                00e7 [40e8]: BUN 0e8   (       JUDGEL3)
 @0e8 50ea	///       JUDGEL3: 00e8 [50ea]: BSA 0ea   (           MSG)
@@ -256,14 +256,14 @@
 @0fc 237d	///          INCL: 00fc [237d]: LDA 37d   (          VM10)
 @0fd 3398	///                00fd [3398]: STA 398   (             K)
 @0fe 2372	///                00fe [2372]: LDA 372   (           VH8)
-@0ff 349e	///                00ff [349e]: STA 49e   (             Y)
+@0ff 349f	///                00ff [349f]: STA 49f   (             Y)
 @100 236f	///                0100 [236f]: LDA 36f   (           VM1)
-@101 3491	///                0101 [3491]: STA 491   (         FLAGR)
-@102 3492	///                0102 [3492]: STA 492   (         FLAGL)
+@101 3492	///                0101 [3492]: STA 492   (         FLAGR)
+@102 3493	///                0102 [3493]: STA 493   (         FLAGL)
 @103 2375	///                0103 [2375]: LDA 375   (           VM2)
-@104 3493	///                0104 [3493]: STA 493   (            CT)
-@105 248e	///                0105 [248e]: LDA 48e   (       P1_CNST)
-@106 348d	///                0106 [348d]: STA 48d   (            P1)
+@104 3494	///                0104 [3494]: STA 494   (            CT)
+@105 248f	///                0105 [248f]: LDA 48f   (       P1_CNST)
+@106 348e	///                0106 [348e]: STA 48e   (            P1)
 @107 2443	///                0107 [2443]: LDA 443   (   A_INER_CNST)
 @108 3442	///                0108 [3442]: STA 442   (        A_INER)
 @109 2444	///                0109 [2444]: LDA 444   (  CT_INER_CNST)
@@ -273,58 +273,58 @@
 @10d f200	///          INL0: 010d [f200]: SKI                       
 @10e 410d	///                010e [410d]: BUN 10d   (          INL0)
 @10f f800	///                010f [f800]: INP                       
-@110 b48d	///                0110 [b48d]: STA 48d I (            P1)
-@111 149c	///                0111 [149c]: ADD 49c   (            SP)
+@110 b48e	///                0110 [b48e]: STA 48e I (            P1)
+@111 149d	///                0111 [149d]: ADD 49d   (            SP)
 @112 7004	///                0112 [7004]: SZA                       
 @113 4115	///                0113 [4115]: BUN 115   (        INL0_1)
 @114 414e	///                0114 [414e]: BUN 14e   (        INPASS)
-@115 a48d	///        INL0_1: 0115 [a48d]: LDA 48d I (            P1)
-@116 149b	///                0116 [149b]: ADD 49b   (            SI)
+@115 a48e	///        INL0_1: 0115 [a48e]: LDA 48e I (            P1)
+@116 149c	///                0116 [149c]: ADD 49c   (            SI)
 @117 7008	///                0117 [7008]: SNA                       
 @118 4146	///                0118 [4146]: BUN 146   (       INERROR)
-@119 a48d	///                0119 [a48d]: LDA 48d I (            P1)
-@11a 149a	///                011a [149a]: ADD 49a   (            SA)
+@119 a48e	///                0119 [a48e]: LDA 48e I (            P1)
+@11a 149b	///                011a [149b]: ADD 49b   (            SA)
 @11b 7008	///                011b [7008]: SNA                       
 @11c 413e	///                011c [413e]: BUN 13e   (      INCOLUMN)
-@11d a48d	///                011d [a48d]: LDA 48d I (            P1)
-@11e 1499	///                011e [1499]: ADD 499   (            LP)
+@11d a48e	///                011d [a48e]: LDA 48e I (            P1)
+@11e 149a	///                011e [149a]: ADD 49a   (            LP)
 @11f 7004	///                011f [7004]: SZA                       
 @120 4122	///                0120 [4122]: BUN 122   (        INL0_2)
 @121 414e	///                0121 [414e]: BUN 14e   (        INPASS)
-@122 a48d	///        INL0_2: 0122 [a48d]: LDA 48d I (            P1)
-@123 1498	///                0123 [1498]: ADD 498   (            LI)
+@122 a48e	///        INL0_2: 0122 [a48e]: LDA 48e I (            P1)
+@123 1499	///                0123 [1499]: ADD 499   (            LI)
 @124 7008	///                0124 [7008]: SNA                       
 @125 4146	///                0125 [4146]: BUN 146   (       INERROR)
-@126 a48d	///                0126 [a48d]: LDA 48d I (            P1)
-@127 1497	///                0127 [1497]: ADD 497   (            LA)
+@126 a48e	///                0126 [a48e]: LDA 48e I (            P1)
+@127 1498	///                0127 [1498]: ADD 498   (            LA)
 @128 7008	///                0128 [7008]: SNA                       
 @129 413e	///                0129 [413e]: BUN 13e   (      INCOLUMN)
-@12a a48d	///                012a [a48d]: LDA 48d I (            P1)
-@12b 1496	///                012b [1496]: ADD 496   (            C9)
+@12a a48e	///                012a [a48e]: LDA 48e I (            P1)
+@12b 1497	///                012b [1497]: ADD 497   (            C9)
 @12c 7008	///                012c [7008]: SNA                       
 @12d 4146	///                012d [4146]: BUN 146   (       INERROR)
-@12e a48d	///                012e [a48d]: LDA 48d I (            P1)
-@12f 1495	///                012f [1495]: ADD 495   (            C1)
+@12e a48e	///                012e [a48e]: LDA 48e I (            P1)
+@12f 1496	///                012f [1496]: ADD 496   (            C1)
 @130 7008	///                0130 [7008]: SNA                       
 @131 4133	///                0131 [4133]: BUN 133   (         INROW)
 @132 4146	///                0132 [4146]: BUN 146   (       INERROR)
-@133 6491	///         INROW: 0133 [6491]: ISZ 491   (         FLAGR)
+@133 6492	///         INROW: 0133 [6492]: ISZ 492   (         FLAGR)
 @134 4146	///                0134 [4146]: BUN 146   (       INERROR)
-@135 349d	///                0135 [349d]: STA 49d   (             X)
+@135 349e	///                0135 [349e]: STA 49e   (             X)
 @136 5227	///                0136 [5227]: BSA 227   (           MUL)
-@137 249f	///                0137 [249f]: LDA 49f   (             Z)
+@137 24a0	///                0137 [24a0]: LDA 4a0   (             Z)
 @138 139a	///                0138 [139a]: ADD 39a   (           STN)
 @139 339a	///                0139 [339a]: STA 39a   (           STN)
-@13a 648d	///                013a [648d]: ISZ 48d   (            P1)
-@13b 6493	///                013b [6493]: ISZ 493   (            CT)
+@13a 648e	///                013a [648e]: ISZ 48e   (            P1)
+@13b 6494	///                013b [6494]: ISZ 494   (            CT)
 @13c 410d	///                013c [410d]: BUN 10d   (          INL0)
 @13d c0f5	///                013d [c0f5]: BUN 0f5 I (         INPUT)
-@13e 6492	///      INCOLUMN: 013e [6492]: ISZ 492   (         FLAGL)
+@13e 6493	///      INCOLUMN: 013e [6493]: ISZ 493   (         FLAGL)
 @13f 4146	///                013f [4146]: BUN 146   (       INERROR)
 @140 139a	///                0140 [139a]: ADD 39a   (           STN)
 @141 339a	///                0141 [339a]: STA 39a   (           STN)
-@142 648d	///                0142 [648d]: ISZ 48d   (            P1)
-@143 6493	///                0143 [6493]: ISZ 493   (            CT)
+@142 648e	///                0142 [648e]: ISZ 48e   (            P1)
+@143 6494	///                0143 [6494]: ISZ 494   (            CT)
 @144 410d	///                0144 [410d]: BUN 10d   (          INL0)
 @145 c0f5	///                0145 [c0f5]: BUN 0f5 I (         INPUT)
 @146 f100	///       INERROR: 0146 [f100]: SKO                       
@@ -341,7 +341,7 @@
 //////////////////////////////end of subroutine/////////////////////////////////////
 ///////////////////////////////subroutine RECEIVE/////////////////////////////////////
 @151 0000	///       RECEIVE: 0151 [0000]: (    0:    0)               
-@152 24af	///                0152 [24af]: LDA 4af   (            GM)
+@152 24b0	///                0152 [24b0]: LDA 4b0   (            GM)
 @153 7004	///                0153 [7004]: SZA                       
 @154 4156	///                0154 [4156]: BUN 156   (         P_INP)
 @155 415d	///                0155 [415d]: BUN 15d   (         R_COM)
@@ -373,13 +373,13 @@
 @16c 7004	///                016c [7004]: SZA                       
 @16d 4175	///                016d [4175]: BUN 175   (        SENDL1)	//パスの場合SEND1まで飛ぶ
 @16e 51df	///                016e [51df]: BSA 1df   (       REFRESH)
-@16f 24a2	///                016f [24a2]: LDA 4a2   (          TAFG)
+@16f 24a3	///                016f [24a3]: LDA 4a3   (          TAFG)
 @170 7004	///                0170 [7004]: SZA                       
 @171 4173	///                0171 [4173]: BUN 173   (     SEND_SHOW)
 @172 4180	///                0172 [4180]: BUN 180   (       TYPE_AG)
 @173 51a6	///     SEND_SHOW: 0173 [51a6]: BSA 1a6   (          SHOW)
 @174 518d	///                0174 [518d]: BSA 18d   (       O_ENTER)	//改行
-@175 24af	///        SENDL1: 0175 [24af]: LDA 4af   (            GM)
+@175 24b0	///        SENDL1: 0175 [24b0]: LDA 4b0   (            GM)
 @176 7004	///                0176 [7004]: SZA                       
 @177 4179	///                0177 [4179]: BUN 179   (         P_OUT)
 @178 417e	///                0178 [417e]: BUN 17e   (        SENDL3)
@@ -391,9 +391,9 @@
 @17d f400	///                017d [f400]: OUT                       
 @17e 5194	///        SENDL3: 017e [5194]: BSA 194   (        TRNCNT)
 @17f c167	///                017f [c167]: BUN 167 I (          SEND)
-@180 2451	///       TYPE_AG: 0180 [2451]: LDA 451   (          A_TA)
+@180 2452	///       TYPE_AG: 0180 [2452]: LDA 452   (          A_TA)
 @181 33a1	///                0181 [33a1]: STA 3a1   (         MSG_A)
-@182 2452	///                0182 [2452]: LDA 452   (        CNT_TA)
+@182 2453	///                0182 [2453]: LDA 453   (        CNT_TA)
 @183 33a2	///                0183 [33a2]: STA 3a2   (       MSG_CNT)
 @184 50ea	///                0184 [50ea]: BSA 0ea   (           MSG)
 @185 518d	///                0185 [518d]: BSA 18d   (       O_ENTER)
@@ -501,7 +501,7 @@
 ///////////////////////////////subroutine REFRESH/////////////////////////////////////
 @1df 0000	///       REFRESH: 01df [0000]: (    0:    0)               
 @1e0 7800	///                01e0 [7800]: CLA                       
-@1e1 34a2	///                01e1 [34a2]: STA 4a2   (          TAFG)
+@1e1 34a3	///                01e1 [34a3]: STA 4a3   (          TAFG)
 @1e2 239a	///                01e2 [239a]: LDA 39a   (           STN)
 @1e3 13a0	///                01e3 [13a0]: ADD 3a0   (        PTCNST)
 @1e4 339d	///                01e4 [339d]: STA 39d   (         PTSTN)
@@ -570,7 +570,7 @@
 @21b 3396	///                021b [3396]: STA 396   (          EDGE)
 @21c 5320	///                021c [5320]: BSA 320   (         CROSS)
 ///
-@21d 24a2	///                021d [24a2]: LDA 4a2   (          TAFG)
+@21d 24a3	///                021d [24a3]: LDA 4a3   (          TAFG)
 @21e 7004	///                021e [7004]: SZA                       
 @21f 4221	///                021f [4221]: BUN 221   (     REFRESHL1)
 @220 c1df	///                0220 [c1df]: BUN 1df I (       REFRESH)
@@ -586,61 +586,61 @@
 @227 0000	///           MUL: 0227 [0000]: (    0:    0)               
 @228 7400	///                0228 [7400]: CLE                       
 @229 7800	///                0229 [7800]: CLA                       
-@22a 349f	///                022a [349f]: STA 49f   (             Z)
+@22a 34a0	///                022a [34a0]: STA 4a0   (             Z)
 @22b 7400	///         MULL0: 022b [7400]: CLE                       	// E <- 0
-@22c 249e	///                022c [249e]: LDA 49e   (             Y)	// AC <- M[Y]
+@22c 249f	///                022c [249f]: LDA 49f   (             Y)	// AC <- M[Y]
 @22d 7004	///                022d [7004]: SZA                       	//(AC==0)ならば次命令スキップ
 @22e 4230	///                022e [4230]: BUN 230   (            LY)	// goto LY
 @22f c227	///                022f [c227]: BUN 227 I (           MUL)
 // M[Y] >>= 1
 @230 7080	///            LY: 0230 [7080]: CIR                       	// AC(15:0) >>= 1
-@231 349e	///                0231 [349e]: STA 49e   (             Y)	// M[Y] <- AC
+@231 349f	///                0231 [349f]: STA 49f   (             Y)	// M[Y] <- AC
 @232 7002	///                0232 [7002]: SZE                       	//(E==0)ならば次命令スキップ
 @233 4238	///                0233 [4238]: BUN 238   (            LZ)	// goto LP
 // M[X] <<= 1
-@234 249d	///            LX: 0234 [249d]: LDA 49d   (             X)	// AC <- M[X]
+@234 249e	///            LX: 0234 [249e]: LDA 49e   (             X)	// AC <- M[X]
 @235 7040	///                0235 [7040]: CIL                       	// AC <<= 1
-@236 349d	///                0236 [349d]: STA 49d   (             X)	// M[X] <- AC
+@236 349e	///                0236 [349e]: STA 49e   (             X)	// M[X] <- AC
 @237 422b	///                0237 [422b]: BUN 22b   (         MULL0)	// goto L0
 // M[P] += M[X]
-@238 249d	///            LZ: 0238 [249d]: LDA 49d   (             X)	// AC <- M[X]
-@239 149f	///                0239 [149f]: ADD 49f   (             Z)	// AC <- AC + M[P]
-@23a 349f	///                023a [349f]: STA 49f   (             Z)	// M[P] <- AC
+@238 249e	///            LZ: 0238 [249e]: LDA 49e   (             X)	// AC <- M[X]
+@239 14a0	///                0239 [14a0]: ADD 4a0   (             Z)	// AC <- AC + M[P]
+@23a 34a0	///                023a [34a0]: STA 4a0   (             Z)	// M[P] <- AC
 @23b 7400	///                023b [7400]: CLE                       	// E <- 0
 @23c 4234	///                023c [4234]: BUN 234   (            LX)	// goto LX
 ///////////////////////////////end of subroutine////////////////////////////////////
 ///////////////////////////////subroutine BTOD///////////////////////////////////////////
 @23d 0000	///          BTOD: 023d [0000]: (    0:    0)               
 ///arg0 : AC
-@23e 349d	///                023e [349d]: STA 49d   (             X)
+@23e 349e	///                023e [349e]: STA 49e   (             X)
 @23f 7800	///                023f [7800]: CLA                       
-@240 349f	///                0240 [349f]: STA 49f   (             Z)
-@241 249d	///                0241 [249d]: LDA 49d   (             X)
+@240 34a0	///                0240 [34a0]: STA 4a0   (             Z)
+@241 249e	///                0241 [249e]: LDA 49e   (             X)
 @242 1382	///        BTODL0: 0242 [1382]: ADD 382   (           VMA)
 @243 7002	///                0243 [7002]: SZE                       
 @244 424c	///                0244 [424c]: BUN 24c   (        BTODL1)
 @245 1381	///                0245 [1381]: ADD 381   (           VHA)
 @246 1389	///                0246 [1389]: ADD 389   (          VH30)
-@247 349d	///                0247 [349d]: STA 49d   (             X)
-@248 249f	///                0248 [249f]: LDA 49f   (             Z)
+@247 349e	///                0247 [349e]: STA 49e   (             X)
+@248 24a0	///                0248 [24a0]: LDA 4a0   (             Z)
 @249 1389	///                0249 [1389]: ADD 389   (          VH30)
-@24a 349f	///                024a [349f]: STA 49f   (             Z)
+@24a 34a0	///                024a [34a0]: STA 4a0   (             Z)
 @24b c23d	///                024b [c23d]: BUN 23d I (          BTOD)
-@24c 649f	///        BTODL1: 024c [649f]: ISZ 49f   (             Z)
+@24c 64a0	///        BTODL1: 024c [64a0]: ISZ 4a0   (             Z)
 @24d 4242	///                024d [4242]: BUN 242   (        BTODL0)
 ///////////////////////////////end of subroutine////////////////////////////////////
 ///////////////////////////////subroutine COM///////////////////////////////////////////
 @24e 0000	///           COM: 024e [0000]: (    0:    0)               
 @24f 7800	///                024f [7800]: CLA                       
-@250 34a8	///                0250 [34a8]: STA 4a8   (   MAX_SUM_STN)
-@251 34a9	///                0251 [34a9]: STA 4a9   (   MIN_SUM_STN)
-@252 34a6	///                0252 [34a6]: STA 4a6   (SUM_SUM_TN_STN)
-@253 34a4	///                0253 [34a4]: STA 4a4   (         FSTFG)
+@250 34a9	///                0250 [34a9]: STA 4a9   (   MAX_SUM_STN)
+@251 34aa	///                0251 [34aa]: STA 4aa   (   MIN_SUM_STN)
+@252 34a7	///                0252 [34a7]: STA 4a7   (SUM_SUM_TN_STN)
+@253 34a5	///                0253 [34a5]: STA 4a5   (         FSTFG)
 @254 238e	///                0254 [238e]: LDA 38e   (          VM40)
-@255 34aa	///                0255 [34aa]: STA 4aa   (         J_CNT)
+@255 34ab	///                0255 [34ab]: STA 4ab   (         J_CNT)
 @256 23a0	///                0256 [23a0]: LDA 3a0   (        PTCNST)
 @257 339d	///                0257 [339d]: STA 39d   (         PTSTN)
-@258 64a3	///                0258 [64a3]: ISZ 4a3   (         SCHFG)
+@258 64a4	///                0258 [64a4]: ISZ 4a4   (         SCHFG)
 @259 2437	///                0259 [2437]: LDA 437   (         A_COM)
 @25a 33a1	///                025a [33a1]: STA 3a1   (         MSG_A)
 @25b 2438	///                025b [2438]: LDA 438   (       CNT_COM)
@@ -651,7 +651,7 @@
 @260 7004	///                0260 [7004]: SZA                       
 @261 430f	///                0261 [430f]: BUN 30f   (         COML1)
 @262 7800	///                0262 [7800]: CLA                       
-@263 34a5	///                0263 [34a5]: STA 4a5   (    SUM_TN_STN)
+@263 34a6	///                0263 [34a6]: STA 4a6   (    SUM_TN_STN)
 ///上方向
 @264 2373	///                0264 [2373]: LDA 373   (           VM8)
 @265 3395	///                0265 [3395]: STA 395   (         GONUM)
@@ -660,9 +660,9 @@
 @268 237e	///                0268 [237e]: LDA 37e   (          VH64)
 @269 3396	///                0269 [3396]: STA 396   (          EDGE)	//引いたら絶対に負になる数を代入
 @26a 5320	///                026a [5320]: BSA 320   (         CROSS)
-@26b 24a5	///                026b [24a5]: LDA 4a5   (    SUM_TN_STN)
-@26c 14a7	///                026c [14a7]: ADD 4a7   (    CNT_TN_STN)
-@26d 34a5	///                026d [34a5]: STA 4a5   (    SUM_TN_STN)
+@26b 24a6	///                026b [24a6]: LDA 4a6   (    SUM_TN_STN)
+@26c 14a8	///                026c [14a8]: ADD 4a8   (    CNT_TN_STN)
+@26d 34a6	///                026d [34a6]: STA 4a6   (    SUM_TN_STN)
 ///下方向
 @26e 2372	///                026e [2372]: LDA 372   (           VH8)
 @26f 3395	///                026f [3395]: STA 395   (         GONUM)
@@ -671,9 +671,9 @@
 @272 237e	///                0272 [237e]: LDA 37e   (          VH64)
 @273 3396	///                0273 [3396]: STA 396   (          EDGE)	//引いたら絶対に負になる数を代入
 @274 5320	///                0274 [5320]: BSA 320   (         CROSS)
-@275 24a5	///                0275 [24a5]: LDA 4a5   (    SUM_TN_STN)
-@276 14a7	///                0276 [14a7]: ADD 4a7   (    CNT_TN_STN)
-@277 34a5	///                0277 [34a5]: STA 4a5   (    SUM_TN_STN)
+@275 24a6	///                0275 [24a6]: LDA 4a6   (    SUM_TN_STN)
+@276 14a8	///                0276 [14a8]: ADD 4a8   (    CNT_TN_STN)
+@277 34a6	///                0277 [34a6]: STA 4a6   (    SUM_TN_STN)
 ///左方向
 @278 236f	///                0278 [236f]: LDA 36f   (           VM1)
 @279 3395	///                0279 [3395]: STA 395   (         GONUM)
@@ -682,9 +682,9 @@
 @27c 2370	///                027c [2370]: LDA 370   (           VH7)
 @27d 3396	///                027d [3396]: STA 396   (          EDGE)
 @27e 5320	///                027e [5320]: BSA 320   (         CROSS)
-@27f 24a5	///                027f [24a5]: LDA 4a5   (    SUM_TN_STN)
-@280 14a7	///                0280 [14a7]: ADD 4a7   (    CNT_TN_STN)
-@281 34a5	///                0281 [34a5]: STA 4a5   (    SUM_TN_STN)
+@27f 24a6	///                027f [24a6]: LDA 4a6   (    SUM_TN_STN)
+@280 14a8	///                0280 [14a8]: ADD 4a8   (    CNT_TN_STN)
+@281 34a6	///                0281 [34a6]: STA 4a6   (    SUM_TN_STN)
 ///右方向
 @282 236e	///                0282 [236e]: LDA 36e   (           VH1)
 @283 3395	///                0283 [3395]: STA 395   (         GONUM)
@@ -693,9 +693,9 @@
 @286 7800	///                0286 [7800]: CLA                       
 @287 3396	///                0287 [3396]: STA 396   (          EDGE)
 @288 5320	///                0288 [5320]: BSA 320   (         CROSS)
-@289 24a5	///                0289 [24a5]: LDA 4a5   (    SUM_TN_STN)
-@28a 14a7	///                028a [14a7]: ADD 4a7   (    CNT_TN_STN)
-@28b 34a5	///                028b [34a5]: STA 4a5   (    SUM_TN_STN)
+@289 24a6	///                0289 [24a6]: LDA 4a6   (    SUM_TN_STN)
+@28a 14a8	///                028a [14a8]: ADD 4a8   (    CNT_TN_STN)
+@28b 34a6	///                028b [34a6]: STA 4a6   (    SUM_TN_STN)
 ///左上
 @28c 2378	///                028c [2378]: LDA 378   (           VM9)
 @28d 3395	///                028d [3395]: STA 395   (         GONUM)
@@ -704,9 +704,9 @@
 @290 2370	///                0290 [2370]: LDA 370   (           VH7)
 @291 3396	///                0291 [3396]: STA 396   (          EDGE)
 @292 5320	///                0292 [5320]: BSA 320   (         CROSS)
-@293 24a5	///                0293 [24a5]: LDA 4a5   (    SUM_TN_STN)
-@294 14a7	///                0294 [14a7]: ADD 4a7   (    CNT_TN_STN)
-@295 34a5	///                0295 [34a5]: STA 4a5   (    SUM_TN_STN)
+@293 24a6	///                0293 [24a6]: LDA 4a6   (    SUM_TN_STN)
+@294 14a8	///                0294 [14a8]: ADD 4a8   (    CNT_TN_STN)
+@295 34a6	///                0295 [34a6]: STA 4a6   (    SUM_TN_STN)
 ///右下
 @296 2377	///                0296 [2377]: LDA 377   (           VH9)
 @297 3395	///                0297 [3395]: STA 395   (         GONUM)
@@ -715,9 +715,9 @@
 @29a 7800	///                029a [7800]: CLA                       
 @29b 3396	///                029b [3396]: STA 396   (          EDGE)
 @29c 5320	///                029c [5320]: BSA 320   (         CROSS)
-@29d 24a5	///                029d [24a5]: LDA 4a5   (    SUM_TN_STN)
-@29e 14a7	///                029e [14a7]: ADD 4a7   (    CNT_TN_STN)
-@29f 34a5	///                029f [34a5]: STA 4a5   (    SUM_TN_STN)
+@29d 24a6	///                029d [24a6]: LDA 4a6   (    SUM_TN_STN)
+@29e 14a8	///                029e [14a8]: ADD 4a8   (    CNT_TN_STN)
+@29f 34a6	///                029f [34a6]: STA 4a6   (    SUM_TN_STN)
 ///右上
 @2a0 2371	///                02a0 [2371]: LDA 371   (           VM7)
 @2a1 3395	///                02a1 [3395]: STA 395   (         GONUM)
@@ -726,9 +726,9 @@
 @2a4 7800	///                02a4 [7800]: CLA                       
 @2a5 3396	///                02a5 [3396]: STA 396   (          EDGE)
 @2a6 5320	///                02a6 [5320]: BSA 320   (         CROSS)
-@2a7 24a5	///                02a7 [24a5]: LDA 4a5   (    SUM_TN_STN)
-@2a8 14a7	///                02a8 [14a7]: ADD 4a7   (    CNT_TN_STN)
-@2a9 34a5	///                02a9 [34a5]: STA 4a5   (    SUM_TN_STN)
+@2a7 24a6	///                02a7 [24a6]: LDA 4a6   (    SUM_TN_STN)
+@2a8 14a8	///                02a8 [14a8]: ADD 4a8   (    CNT_TN_STN)
+@2a9 34a6	///                02a9 [34a6]: STA 4a6   (    SUM_TN_STN)
 ///左下
 @2aa 2370	///                02aa [2370]: LDA 370   (           VH7)
 @2ab 3395	///                02ab [3395]: STA 395   (         GONUM)
@@ -737,35 +737,35 @@
 @2ae 2370	///                02ae [2370]: LDA 370   (           VH7)
 @2af 3396	///                02af [3396]: STA 396   (          EDGE)
 @2b0 5320	///                02b0 [5320]: BSA 320   (         CROSS)
-@2b1 24a5	///                02b1 [24a5]: LDA 4a5   (    SUM_TN_STN)
-@2b2 14a7	///                02b2 [14a7]: ADD 4a7   (    CNT_TN_STN)
-@2b3 34a5	///                02b3 [34a5]: STA 4a5   (    SUM_TN_STN)
-@2b4 14a6	///                02b4 [14a6]: ADD 4a6   (SUM_SUM_TN_STN)
-@2b5 34a6	///                02b5 [34a6]: STA 4a6   (SUM_SUM_TN_STN)
-@2b6 24a1	///                02b6 [24a1]: LDA 4a1   (           DIF)
+@2b1 24a6	///                02b1 [24a6]: LDA 4a6   (    SUM_TN_STN)
+@2b2 14a8	///                02b2 [14a8]: ADD 4a8   (    CNT_TN_STN)
+@2b3 34a6	///                02b3 [34a6]: STA 4a6   (    SUM_TN_STN)
+@2b4 14a7	///                02b4 [14a7]: ADD 4a7   (SUM_SUM_TN_STN)
+@2b5 34a7	///                02b5 [34a7]: STA 4a7   (SUM_SUM_TN_STN)
+@2b6 24a2	///                02b6 [24a2]: LDA 4a2   (           DIF)
 @2b7 7004	///                02b7 [7004]: SZA                       
 @2b8 42d2	///                02b8 [42d2]: BUN 2d2   (          DIF1)
-@2b9 24a5	///                02b9 [24a5]: LDA 4a5   (    SUM_TN_STN)	// DIF = 0
+@2b9 24a6	///                02b9 [24a6]: LDA 4a6   (    SUM_TN_STN)	// DIF = 0
 @2ba 7004	///                02ba [7004]: SZA                       
 @2bb 42bd	///                02bb [42bd]: BUN 2bd   (        DIF0L0)
 @2bc 430f	///                02bc [430f]: BUN 30f   (         COML1)
-@2bd 24a4	///        DIF0L0: 02bd [24a4]: LDA 4a4   (         FSTFG)
+@2bd 24a5	///        DIF0L0: 02bd [24a5]: LDA 4a5   (         FSTFG)
 @2be 7004	///                02be [7004]: SZA                       
 @2bf 42c7	///                02bf [42c7]: BUN 2c7   (        DIF0L1)
 @2c0 236e	///                02c0 [236e]: LDA 36e   (           VH1)
-@2c1 34a4	///                02c1 [34a4]: STA 4a4   (         FSTFG)
+@2c1 34a5	///                02c1 [34a5]: STA 4a5   (         FSTFG)
 @2c2 239d	///                02c2 [239d]: LDA 39d   (         PTSTN)
 @2c3 339f	///                02c3 [339f]: STA 39f   (        PTTMP2)
-@2c4 248e	///                02c4 [248e]: LDA 48e   (       P1_CNST)
-@2c5 34ab	///                02c5 [34ab]: STA 4ab   (         B_CHK)
+@2c4 248f	///                02c4 [248f]: LDA 48f   (       P1_CNST)
+@2c5 34ac	///                02c5 [34ac]: STA 4ac   (         B_CHK)
 @2c6 430f	///                02c6 [430f]: BUN 30f   (         COML1)
-@2c7 24ab	///        DIF0L1: 02c7 [24ab]: LDA 4ab   (         B_CHK)
+@2c7 24ac	///        DIF0L1: 02c7 [24ac]: LDA 4ac   (         B_CHK)
 @2c8 036e	///                02c8 [036e]: AND 36e   (           VH1)
 @2c9 7004	///                02c9 [7004]: SZA                       
 @2ca 42cf	///                02ca [42cf]: BUN 2cf   (        DIF0L3)
-@2cb 24ab	///        DIF0L2: 02cb [24ab]: LDA 4ab   (         B_CHK)
+@2cb 24ac	///        DIF0L2: 02cb [24ac]: LDA 4ac   (         B_CHK)
 @2cc 7080	///                02cc [7080]: CIR                       
-@2cd 34ab	///                02cd [34ab]: STA 4ab   (         B_CHK)
+@2cd 34ac	///                02cd [34ac]: STA 4ac   (         B_CHK)
 @2ce 430f	///                02ce [430f]: BUN 30f   (         COML1)
 @2cf 239d	///        DIF0L3: 02cf [239d]: LDA 39d   (         PTSTN)
 @2d0 339f	///                02d0 [339f]: STA 39f   (        PTTMP2)
@@ -773,41 +773,41 @@
 @2d2 136f	///          DIF1: 02d2 [136f]: ADD 36f   (           VM1)
 @2d3 7004	///                02d3 [7004]: SZA                       
 @2d4 42e3	///                02d4 [42e3]: BUN 2e3   (          DIF2)
-@2d5 24a5	///       TO_DIF1: 02d5 [24a5]: LDA 4a5   (    SUM_TN_STN)	// DIF = 1
+@2d5 24a6	///       TO_DIF1: 02d5 [24a6]: LDA 4a6   (    SUM_TN_STN)	// DIF = 1
 @2d6 7200	///                02d6 [7200]: CMA                       
 @2d7 7020	///                02d7 [7020]: INC                       
-@2d8 14a8	///                02d8 [14a8]: ADD 4a8   (   MAX_SUM_STN)
+@2d8 14a9	///                02d8 [14a9]: ADD 4a9   (   MAX_SUM_STN)
 @2d9 7004	///                02d9 [7004]: SZA                       
 @2da 42dc	///                02da [42dc]: BUN 2dc   (        DIF1L0)
 @2db 42bd	///                02db [42bd]: BUN 2bd   (        DIF0L0)
 @2dc 7008	///        DIF1L0: 02dc [7008]: SNA                       
 @2dd 430f	///                02dd [430f]: BUN 30f   (         COML1)
-@2de 24a5	///                02de [24a5]: LDA 4a5   (    SUM_TN_STN)
-@2df 34a8	///                02df [34a8]: STA 4a8   (   MAX_SUM_STN)
+@2de 24a6	///                02de [24a6]: LDA 4a6   (    SUM_TN_STN)
+@2df 34a9	///                02df [34a9]: STA 4a9   (   MAX_SUM_STN)
 @2e0 239d	///                02e0 [239d]: LDA 39d   (         PTSTN)
 @2e1 339f	///                02e1 [339f]: STA 39f   (        PTTMP2)
 @2e2 430f	///                02e2 [430f]: BUN 30f   (         COML1)
 // DIF = 2
-@2e3 24a5	///          DIF2: 02e3 [24a5]: LDA 4a5   (    SUM_TN_STN)
+@2e3 24a6	///          DIF2: 02e3 [24a6]: LDA 4a6   (    SUM_TN_STN)
 @2e4 7004	///                02e4 [7004]: SZA                       
 @2e5 42e7	///                02e5 [42e7]: BUN 2e7   (        DIF2L0)
 @2e6 430f	///                02e6 [430f]: BUN 30f   (         COML1)
-@2e7 24aa	///        DIF2L0: 02e7 [24aa]: LDA 4aa   (         J_CNT)
+@2e7 24ab	///        DIF2L0: 02e7 [24ab]: LDA 4ab   (         J_CNT)
 @2e8 137c	///                02e8 [137c]: ADD 37c   (          VH40)
 @2e9 7004	///                02e9 [7004]: SZA                       
 @2ea 42ec	///                02ea [42ec]: BUN 2ec   (        DIF2L1)
 @2eb 42fa	///                02eb [42fa]: BUN 2fa   (        DIF2L4)
-@2ec 24aa	///        DIF2L1: 02ec [24aa]: LDA 4aa   (         J_CNT)
+@2ec 24ab	///        DIF2L1: 02ec [24ab]: LDA 4ab   (         J_CNT)
 @2ed 138a	///                02ed [138a]: ADD 38a   (          VH39)
 @2ee 7004	///                02ee [7004]: SZA                       
 @2ef 42f1	///                02ef [42f1]: BUN 2f1   (        DIF2L2)
 @2f0 42fa	///                02f0 [42fa]: BUN 2fa   (        DIF2L4)
-@2f1 24aa	///        DIF2L2: 02f1 [24aa]: LDA 4aa   (         J_CNT)
+@2f1 24ab	///        DIF2L2: 02f1 [24ab]: LDA 4ab   (         J_CNT)
 @2f2 1372	///                02f2 [1372]: ADD 372   (           VH8)
 @2f3 7004	///                02f3 [7004]: SZA                       
 @2f4 42f6	///                02f4 [42f6]: BUN 2f6   (        DIF2L3)
 @2f5 42fa	///                02f5 [42fa]: BUN 2fa   (        DIF2L4)
-@2f6 24aa	///        DIF2L3: 02f6 [24aa]: LDA 4aa   (         J_CNT)
+@2f6 24ab	///        DIF2L3: 02f6 [24ab]: LDA 4ab   (         J_CNT)
 @2f7 136e	///                02f7 [136e]: ADD 36e   (           VH1)
 @2f8 7004	///                02f8 [7004]: SZA                       
 @2f9 42fd	///                02f9 [42fd]: BUN 2fd   (        DIF2L5)
@@ -818,24 +818,24 @@
 @2fe 1387	///                02fe [1387]: ADD 387   (          VH28)
 @2ff 7008	///                02ff [7008]: SNA                       
 @300 42d5	///                0300 [42d5]: BUN 2d5   (       TO_DIF1)
-@301 24a5	///                0301 [24a5]: LDA 4a5   (    SUM_TN_STN)
+@301 24a6	///                0301 [24a6]: LDA 4a6   (    SUM_TN_STN)
 @302 7200	///                0302 [7200]: CMA                       
 @303 7020	///                0303 [7020]: INC                       
-@304 14a9	///                0304 [14a9]: ADD 4a9   (   MIN_SUM_STN)
+@304 14aa	///                0304 [14aa]: ADD 4aa   (   MIN_SUM_STN)
 @305 7010	///                0305 [7010]: SPA                       
 @306 430f	///                0306 [430f]: BUN 30f   (         COML1)
 @307 7004	///                0307 [7004]: SZA                       
 @308 430a	///                0308 [430a]: BUN 30a   (        DIF2L6)
 @309 42bd	///                0309 [42bd]: BUN 2bd   (        DIF0L0)
-@30a 24a5	///        DIF2L6: 030a [24a5]: LDA 4a5   (    SUM_TN_STN)
-@30b 34a9	///                030b [34a9]: STA 4a9   (   MIN_SUM_STN)
+@30a 24a6	///        DIF2L6: 030a [24a6]: LDA 4a6   (    SUM_TN_STN)
+@30b 34aa	///                030b [34aa]: STA 4aa   (   MIN_SUM_STN)
 @30c 239d	///                030c [239d]: LDA 39d   (         PTSTN)
 @30d 339f	///                030d [339f]: STA 39f   (        PTTMP2)
 @30e 430f	///                030e [430f]: BUN 30f   (         COML1)
 @30f 639d	///         COML1: 030f [639d]: ISZ 39d   (         PTSTN)
-@310 64aa	///                0310 [64aa]: ISZ 4aa   (         J_CNT)
+@310 64ab	///                0310 [64ab]: ISZ 4ab   (         J_CNT)
 @311 425f	///                0311 [425f]: BUN 25f   (         COML0)
-@312 24a6	///                0312 [24a6]: LDA 4a6   (SUM_SUM_TN_STN)
+@312 24a7	///                0312 [24a7]: LDA 4a7   (SUM_SUM_TN_STN)
 @313 7004	///                0313 [7004]: SZA                       
 @314 4318	///                0314 [4318]: BUN 318   (         COML2)
 @315 237f	///                0315 [237f]: LDA 37f   (          VH7A)
@@ -847,14 +847,14 @@
 @31b 139f	///                031b [139f]: ADD 39f   (        PTTMP2)
 @31c 339a	///                031c [339a]: STA 39a   (           STN)
 @31d 7800	///         COML3: 031d [7800]: CLA                       
-@31e 34a3	///                031e [34a3]: STA 4a3   (         SCHFG)
+@31e 34a4	///                031e [34a4]: STA 4a4   (         SCHFG)
 @31f c24e	///                031f [c24e]: BUN 24e I (           COM)
 ///////////////////////////////end of subroutine////////////////////////////////////
 ///////////////////////////////subroutine CROSS/////////////////////////////////////
 //コメントでは上方向の場合を例にしている
 @320 0000	///         CROSS: 0320 [0000]: (    0:    0)               
 @321 7800	///                0321 [7800]: CLA                       
-@322 34a7	///                0322 [34a7]: STA 4a7   (    CNT_TN_STN)
+@322 34a8	///                0322 [34a8]: STA 4a8   (    CNT_TN_STN)
 //PTを石を置いた位置に相当する配列要素のアドレスとする
 @323 239d	///                0323 [239d]: LDA 39d   (         PTSTN)
 @324 339e	///                0324 [339e]: STA 39e   (         PTTMP)
@@ -904,7 +904,7 @@
 @34d 7020	///                034d [7020]: INC                       
 @34e 7004	///                034e [7004]: SZA                       
 @34f 432a	///                034f [432a]: BUN 32a   (     CROSSLOOP)	//if D[STN-8i] != M[TRN]  
-@350 24a3	///                0350 [24a3]: LDA 4a3   (         SCHFG)
+@350 24a4	///                0350 [24a4]: LDA 4a4   (         SCHFG)
 @351 7004	///                0351 [7004]: SZA                       
 @352 4362	///                0352 [4362]: BUN 362   (        SEARCH)
 //if(D[STN-8i] == M[TRN]) 戻って全部石を反転
@@ -924,7 +924,7 @@
 @35d 2390	///                035d [2390]: LDA 390   ( CNT_CROSSLOOP)
 @35e 1375	///                035e [1375]: ADD 375   (           VM2)
 @35f 7008	///                035f [7008]: SNA                       
-@360 64a2	///                0360 [64a2]: ISZ 4a2   (          TAFG)
+@360 64a3	///                0360 [64a3]: ISZ 4a3   (          TAFG)
 //else 何も変えない
 @361 c320	///      CROSSHLT: 0361 [c320]: BUN 320 I (         CROSS)
 @362 239e	///        SEARCH: 0362 [239e]: LDA 39e   (         PTTMP)
@@ -936,7 +936,7 @@
 @368 7004	///                0368 [7004]: SZA                       
 @369 436b	///                0369 [436b]: BUN 36b   (       INC_STN)
 @36a c320	///                036a [c320]: BUN 320 I (         CROSS)
-@36b 64a7	///       INC_STN: 036b [64a7]: ISZ 4a7   (    CNT_TN_STN)
+@36b 64a8	///       INC_STN: 036b [64a8]: ISZ 4a8   (    CNT_TN_STN)
 @36c 4362	///                036c [4362]: BUN 362   (        SEARCH)
 //////////////////////////////////end of subroutine/////////////////////////////////////
 ///データ
@@ -991,7 +991,7 @@
 @39d 0000	///         PTSTN: 039d [0000]: (    0:    0)               	//今置かれた石の配列要素のアドレス
 @39e 0000	///         PTTMP: 039e [0000]: (    0:    0)               	//コンピュータが今見ている石の配列要素のアドレス
 @39f 0000	///        PTTMP2: 039f [0000]: (    0:    0)               
-@3a0 04b4	///        PTCNST: 03a0 [04b4]: ( 1204: 1204)               
+@3a0 04b5	///        PTCNST: 03a0 [04b5]: ( 1205: 1205)               
 @3a1 0000	///         MSG_A: 03a1 [0000]: (    0:    0)               
 @3a2 0000	///       MSG_CNT: 03a2 [0000]: (    0:    0)               
 @3a3 03a5	///       A_INTRO: 03a3 [03a5]: (  933:  933)               
@@ -1155,8 +1155,8 @@
 @441 003e	///                0441 [003e]: (   62:  '>')               
 @442 0446	///        A_INER: 0442 [0446]: ( 1094: 1094)               
 @443 0446	///   A_INER_CNST: 0443 [0446]: ( 1094: 1094)               
-@444 fff5	///  CT_INER_CNST: 0444 [fff5]: (  -11:65525)               
-@445 fff5	///       CT_INER: 0445 [fff5]: (  -11:65525)               
+@444 fff4	///  CT_INER_CNST: 0444 [fff4]: (  -12:65524)               
+@445 fff4	///       CT_INER: 0445 [fff4]: (  -12:65524)               
 @446 0049	///          INER: 0446 [0049]: (   73:  'I')               
 @447 004e	///                0447 [004e]: (   78:  'N')               
 @448 0050	///                0448 [0050]: (   80:  'P')               
@@ -1168,166 +1168,167 @@
 @44e 0041	///                044e [0041]: (   65:  'A')               
 @44f 0049	///                044f [0049]: (   73:  'I')               
 @450 004e	///                0450 [004e]: (   78:  'N')               
-@451 0453	///          A_TA: 0451 [0453]: ( 1107: 1107)               
-@452 fff3	///        CNT_TA: 0452 [fff3]: (  -13:65523)               
-@453 0049	///            TA: 0453 [0049]: (   73:  'I')               
-@454 004e	///                0454 [004e]: (   78:  'N')               
-@455 0056	///                0455 [0056]: (   86:  'V')               
-@456 0041	///                0456 [0041]: (   65:  'A')               
-@457 004c	///                0457 [004c]: (   76:  'L')               
-@458 0049	///                0458 [0049]: (   73:  'I')               
-@459 0044	///                0459 [0044]: (   68:  'D')               
-@45a 0020	///                045a [0020]: (   32:  ' ')               
-@45b 0050	///                045b [0050]: (   80:  'P')               
-@45c 004c	///                045c [004c]: (   76:  'L')               
-@45d 0041	///                045d [0041]: (   65:  'A')               
-@45e 0043	///                045e [0043]: (   67:  'C')               
-@45f 0045	///                045f [0045]: (   69:  'E')               
-@460 0466	///     A_STN_SUM: 0460 [0466]: ( 1126: 1126)               
-@461 046a	///A_PL1_SUM_CNST: 0461 [046a]: ( 1130: 1130)               
-@462 0471	///A_PL2_SUM_CNST: 0462 [0471]: ( 1137: 1137)               
-@463 046a	///     A_PL1_SUM: 0463 [046a]: ( 1130: 1130)               
-@464 0471	///     A_PL2_SUM: 0464 [0471]: ( 1137: 1137)               
-@465 fff3	///   CNT_STN_SUM: 0465 [fff3]: (  -13:65523)               
-@466 0050	///   MSG_STN_SUM: 0466 [0050]: (   80:  'P')               
-@467 004c	///                0467 [004c]: (   76:  'L')               
-@468 0031	///                0468 [0031]: (   49:  '1')               
-@469 003a	///                0469 [003a]: (   58:  ':')               
-@46a 0000	///       PL1_SUM: 046a [0000]: (    0:    0)               
-@46b 0000	///                046b [0000]: (    0:    0)               
-@46c 0020	///                046c [0020]: (   32:  ' ')               
-@46d 0050	///                046d [0050]: (   80:  'P')               
-@46e 004c	///                046e [004c]: (   76:  'L')               
-@46f 0032	///                046f [0032]: (   50:  '2')               
-@470 003a	///                0470 [003a]: (   58:  ':')               
-@471 0000	///       PL2_SUM: 0471 [0000]: (    0:    0)               
-@472 0000	///                0472 [0000]: (    0:    0)               
-@473 0475	///         A_WIN: 0473 [0475]: ( 1141: 1141)               
-@474 fff8	///       CNT_WIN: 0474 [fff8]: (   -8:65528)               
-@475 0059	///       MSG_WIN: 0475 [0059]: (   89:  'Y')               
-@476 004f	///                0476 [004f]: (   79:  'O')               
-@477 0055	///                0477 [0055]: (   85:  'U')               
-@478 0020	///                0478 [0020]: (   32:  ' ')               
-@479 0057	///                0479 [0057]: (   87:  'W')               
-@47a 0049	///                047a [0049]: (   73:  'I')               
-@47b 004e	///                047b [004e]: (   78:  'N')               
-@47c 0021	///                047c [0021]: (   33:  '!')               
-@47d 047f	///        A_LOSE: 047d [047f]: ( 1151: 1151)               
-@47e fff8	///      CNT_LOSE: 047e [fff8]: (   -8:65528)               
-@47f 0059	///      MSG_LOSE: 047f [0059]: (   89:  'Y')               
-@480 004f	///                0480 [004f]: (   79:  'O')               
-@481 0055	///                0481 [0055]: (   85:  'U')               
-@482 0020	///                0482 [0020]: (   32:  ' ')               
-@483 004c	///                0483 [004c]: (   76:  'L')               
-@484 004f	///                0484 [004f]: (   79:  'O')               
-@485 0053	///                0485 [0053]: (   83:  'S')               
-@486 0045	///                0486 [0045]: (   69:  'E')               
-@487 0489	///        A_DRAW: 0487 [0489]: ( 1161: 1161)               
-@488 fffc	///      CNT_DRAW: 0488 [fffc]: (   -4:65532)               
-@489 0044	///      MSG_DRAW: 0489 [0044]: (   68:  'D')               
-@48a 0052	///                048a [0052]: (   82:  'R')               
-@48b 0041	///                048b [0041]: (   65:  'A')               
-@48c 0057	///                048c [0057]: (   87:  'W')               
-@48d 048f	///            P1: 048d [048f]: ( 1167: 1167)               
-@48e 048f	///       P1_CNST: 048e [048f]: ( 1167: 1167)               
-@48f 0000	///       ADDRESS: 048f [0000]: (    0:    0)               
-@490 0000	///                0490 [0000]: (    0:    0)               
-@491 ffff	///         FLAGR: 0491 [ffff]: (   -1:65535)               
-@492 ffff	///         FLAGL: 0492 [ffff]: (   -1:65535)               
-@493 fffe	///            CT: 0493 [fffe]: (   -2:65534)               
-@494 0000	///            AD: 0494 [0000]: (    0:    0)               
-@495 ffcf	///            C1: 0495 [ffcf]: (  -49:65487)               
-@496 ffc7	///            C9: 0496 [ffc7]: (  -57:65479)               
-@497 ffbf	///            LA: 0497 [ffbf]: (  -65:65471)               
-@498 ffb7	///            LI: 0498 [ffb7]: (  -73:65463)               
-@499 ffb0	///            LP: 0499 [ffb0]: (  -80:65456)               
-@49a ff9f	///            SA: 049a [ff9f]: (  -97:65439)               
-@49b ff97	///            SI: 049b [ff97]: ( -105:65431)               
-@49c ff90	///            SP: 049c [ff90]: ( -112:65424)               
-@49d 0000	///             X: 049d [0000]: (    0:    0)               
-@49e 0008	///             Y: 049e [0008]: (    8:    8)               
-@49f 0000	///             Z: 049f [0000]: (    0:    0)               
-@4a0 fff0	///            KN: 04a0 [fff0]: (  -16:65520)               
-@4a1 0000	///           DIF: 04a1 [0000]: (    0:    0)               
-@4a2 0000	///          TAFG: 04a2 [0000]: (    0:    0)               	// type again flag
-@4a3 0000	///         SCHFG: 04a3 [0000]: (    0:    0)               
-@4a4 0000	///         FSTFG: 04a4 [0000]: (    0:    0)               
-@4a5 0000	///    SUM_TN_STN: 04a5 [0000]: (    0:    0)               
-@4a6 0000	///SUM_SUM_TN_STN: 04a6 [0000]: (    0:    0)               
-@4a7 0000	///    CNT_TN_STN: 04a7 [0000]: (    0:    0)               
-@4a8 0000	///   MAX_SUM_STN: 04a8 [0000]: (    0:    0)               
-@4a9 0000	///   MIN_SUM_STN: 04a9 [0000]: (    0:    0)               
-@4aa ffc0	///         J_CNT: 04aa [ffc0]: (  -64:65472)               
-@4ab 0000	///         B_CHK: 04ab [0000]: (    0:    0)               
-@4ac 0000	///     O_STN_SUM: 04ac [0000]: (    0:    0)               
-@4ad 0000	///     T_STN_SUM: 04ad [0000]: (    0:    0)               
-@4ae 0000	///            PL: 04ae [0000]: (    0:    0)               	//0:PL1,1:PL2
-@4af 0000	///            GM: 04af [0000]: (    0:    0)               
-@4b0 0000	///         COMLP: 04b0 [0000]: (    0:    0)               
-@4b1 0000	///             P: 04b1 [0000]: (    0:    0)               	// M[P] = 0（初期化必要）
-@4b2 04b4	///           A_D: 04b2 [04b4]: ( 1204: 1204)               
-@4b3 04b4	///      A_D_CNST: 04b3 [04b4]: ( 1204: 1204)               
-@4b4 0000	///             D: 04b4 [0000]: (    0:    0)               	// D[0]
-@4b5 0000	///                04b5 [0000]: (    0:    0)               	// D[1]
-@4b6 0000	///                04b6 [0000]: (    0:    0)               	// D[2]
-@4b7 0000	///                04b7 [0000]: (    0:    0)               	// D[3]
-@4b8 0000	///                04b8 [0000]: (    0:    0)               	// D[4]
-@4b9 0000	///                04b9 [0000]: (    0:    0)               	// D[5]
-@4ba 0000	///                04ba [0000]: (    0:    0)               	// D[6]
-@4bb 0000	///                04bb [0000]: (    0:    0)               	// D[7]
-@4bc 0000	///                04bc [0000]: (    0:    0)               	// D[8]
-@4bd 0000	///                04bd [0000]: (    0:    0)               	// D[9]
-@4be 0000	///                04be [0000]: (    0:    0)               	// D[10]
-@4bf 0000	///                04bf [0000]: (    0:    0)               	// D[11]
-@4c0 0000	///                04c0 [0000]: (    0:    0)               	// D[12]
-@4c1 0000	///                04c1 [0000]: (    0:    0)               	// D[13]
-@4c2 0000	///                04c2 [0000]: (    0:    0)               	// D[14]
-@4c3 0000	///                04c3 [0000]: (    0:    0)               	// D[15]
-@4c4 0000	///                04c4 [0000]: (    0:    0)               	// D[16]
-@4c5 0000	///                04c5 [0000]: (    0:    0)               	// D[17]
-@4c6 0000	///                04c6 [0000]: (    0:    0)               	// D[18]
-@4c7 0000	///                04c7 [0000]: (    0:    0)               	// D[19]
-@4c8 0000	///                04c8 [0000]: (    0:    0)               	// D[20]
-@4c9 0000	///                04c9 [0000]: (    0:    0)               	// D[21]
-@4ca 0000	///                04ca [0000]: (    0:    0)               	// D[22]
-@4cb 0000	///                04cb [0000]: (    0:    0)               	// D[23]
-@4cc 0000	///                04cc [0000]: (    0:    0)               	// D[24]
-@4cd 0000	///                04cd [0000]: (    0:    0)               	// D[25]
-@4ce 0000	///                04ce [0000]: (    0:    0)               	// D[26]
-@4cf 0002	///                04cf [0002]: (    2:    2)               	// D[27]
-@4d0 0001	///                04d0 [0001]: (    1:    1)               	// D[28]
-@4d1 0000	///                04d1 [0000]: (    0:    0)               	// D[29]
-@4d2 0000	///                04d2 [0000]: (    0:    0)               	// D[30]
-@4d3 0000	///                04d3 [0000]: (    0:    0)               	// D[31]
-@4d4 0000	///                04d4 [0000]: (    0:    0)               	// D[32]
-@4d5 0000	///                04d5 [0000]: (    0:    0)               	// D[33]
-@4d6 0000	///                04d6 [0000]: (    0:    0)               	// D[34]
-@4d7 0001	///                04d7 [0001]: (    1:    1)               	// D[35]
-@4d8 0002	///                04d8 [0002]: (    2:    2)               	// D[36]
-@4d9 0000	///                04d9 [0000]: (    0:    0)               	// D[37]
-@4da 0000	///                04da [0000]: (    0:    0)               	// D[38]
-@4db 0000	///                04db [0000]: (    0:    0)               	// D[39]
-@4dc 0000	///                04dc [0000]: (    0:    0)               	// D[40]
-@4dd 0000	///                04dd [0000]: (    0:    0)               	// D[41]
-@4de 0000	///                04de [0000]: (    0:    0)               	// D[42]
-@4df 0000	///                04df [0000]: (    0:    0)               	// D[43]
-@4e0 0000	///                04e0 [0000]: (    0:    0)               	// D[44]
-@4e1 0000	///                04e1 [0000]: (    0:    0)               	// D[45]
-@4e2 0000	///                04e2 [0000]: (    0:    0)               	// D[46]
-@4e3 0000	///                04e3 [0000]: (    0:    0)               	// D[47]
-@4e4 0000	///                04e4 [0000]: (    0:    0)               	// D[48]
-@4e5 0000	///                04e5 [0000]: (    0:    0)               	// D[49]
-@4e6 0000	///                04e6 [0000]: (    0:    0)               	// D[50]
-@4e7 0000	///                04e7 [0000]: (    0:    0)               	// D[51]
-@4e8 0000	///                04e8 [0000]: (    0:    0)               	// D[52]
-@4e9 0000	///                04e9 [0000]: (    0:    0)               	// D[53]
-@4ea 0000	///                04ea [0000]: (    0:    0)               	// D[54]
-@4eb 0000	///                04eb [0000]: (    0:    0)               	// D[55]
-@4ec 0000	///                04ec [0000]: (    0:    0)               	// D[56]
-@4ed 0000	///                04ed [0000]: (    0:    0)               	// D[57]
-@4ee 0000	///                04ee [0000]: (    0:    0)               	// D[58]
-@4ef 0000	///                04ef [0000]: (    0:    0)               	// D[59]
-@4f0 0000	///                04f0 [0000]: (    0:    0)               	// D[60]
-@4f1 0000	///                04f1 [0000]: (    0:    0)               	// D[61]
-@4f2 0000	///                04f2 [0000]: (    0:    0)               	// D[62]
-@4f3 0000	///                04f3 [0000]: (    0:    0)               	// D[63]
+@451 000a	///                0451 [000a]: (   10:   10)               
+@452 0454	///          A_TA: 0452 [0454]: ( 1108: 1108)               
+@453 fff3	///        CNT_TA: 0453 [fff3]: (  -13:65523)               
+@454 0049	///            TA: 0454 [0049]: (   73:  'I')               
+@455 004e	///                0455 [004e]: (   78:  'N')               
+@456 0056	///                0456 [0056]: (   86:  'V')               
+@457 0041	///                0457 [0041]: (   65:  'A')               
+@458 004c	///                0458 [004c]: (   76:  'L')               
+@459 0049	///                0459 [0049]: (   73:  'I')               
+@45a 0044	///                045a [0044]: (   68:  'D')               
+@45b 0020	///                045b [0020]: (   32:  ' ')               
+@45c 0050	///                045c [0050]: (   80:  'P')               
+@45d 004c	///                045d [004c]: (   76:  'L')               
+@45e 0041	///                045e [0041]: (   65:  'A')               
+@45f 0043	///                045f [0043]: (   67:  'C')               
+@460 0045	///                0460 [0045]: (   69:  'E')               
+@461 0467	///     A_STN_SUM: 0461 [0467]: ( 1127: 1127)               
+@462 046b	///A_PL1_SUM_CNST: 0462 [046b]: ( 1131: 1131)               
+@463 0472	///A_PL2_SUM_CNST: 0463 [0472]: ( 1138: 1138)               
+@464 046b	///     A_PL1_SUM: 0464 [046b]: ( 1131: 1131)               
+@465 0472	///     A_PL2_SUM: 0465 [0472]: ( 1138: 1138)               
+@466 fff3	///   CNT_STN_SUM: 0466 [fff3]: (  -13:65523)               
+@467 0050	///   MSG_STN_SUM: 0467 [0050]: (   80:  'P')               
+@468 004c	///                0468 [004c]: (   76:  'L')               
+@469 0031	///                0469 [0031]: (   49:  '1')               
+@46a 003a	///                046a [003a]: (   58:  ':')               
+@46b 0000	///       PL1_SUM: 046b [0000]: (    0:    0)               
+@46c 0000	///                046c [0000]: (    0:    0)               
+@46d 0020	///                046d [0020]: (   32:  ' ')               
+@46e 0050	///                046e [0050]: (   80:  'P')               
+@46f 004c	///                046f [004c]: (   76:  'L')               
+@470 0032	///                0470 [0032]: (   50:  '2')               
+@471 003a	///                0471 [003a]: (   58:  ':')               
+@472 0000	///       PL2_SUM: 0472 [0000]: (    0:    0)               
+@473 0000	///                0473 [0000]: (    0:    0)               
+@474 0476	///         A_WIN: 0474 [0476]: ( 1142: 1142)               
+@475 fff8	///       CNT_WIN: 0475 [fff8]: (   -8:65528)               
+@476 0059	///       MSG_WIN: 0476 [0059]: (   89:  'Y')               
+@477 004f	///                0477 [004f]: (   79:  'O')               
+@478 0055	///                0478 [0055]: (   85:  'U')               
+@479 0020	///                0479 [0020]: (   32:  ' ')               
+@47a 0057	///                047a [0057]: (   87:  'W')               
+@47b 0049	///                047b [0049]: (   73:  'I')               
+@47c 004e	///                047c [004e]: (   78:  'N')               
+@47d 0021	///                047d [0021]: (   33:  '!')               
+@47e 0480	///        A_LOSE: 047e [0480]: ( 1152: 1152)               
+@47f fff8	///      CNT_LOSE: 047f [fff8]: (   -8:65528)               
+@480 0059	///      MSG_LOSE: 0480 [0059]: (   89:  'Y')               
+@481 004f	///                0481 [004f]: (   79:  'O')               
+@482 0055	///                0482 [0055]: (   85:  'U')               
+@483 0020	///                0483 [0020]: (   32:  ' ')               
+@484 004c	///                0484 [004c]: (   76:  'L')               
+@485 004f	///                0485 [004f]: (   79:  'O')               
+@486 0053	///                0486 [0053]: (   83:  'S')               
+@487 0045	///                0487 [0045]: (   69:  'E')               
+@488 048a	///        A_DRAW: 0488 [048a]: ( 1162: 1162)               
+@489 fffc	///      CNT_DRAW: 0489 [fffc]: (   -4:65532)               
+@48a 0044	///      MSG_DRAW: 048a [0044]: (   68:  'D')               
+@48b 0052	///                048b [0052]: (   82:  'R')               
+@48c 0041	///                048c [0041]: (   65:  'A')               
+@48d 0057	///                048d [0057]: (   87:  'W')               
+@48e 0490	///            P1: 048e [0490]: ( 1168: 1168)               
+@48f 0490	///       P1_CNST: 048f [0490]: ( 1168: 1168)               
+@490 0000	///       ADDRESS: 0490 [0000]: (    0:    0)               
+@491 0000	///                0491 [0000]: (    0:    0)               
+@492 ffff	///         FLAGR: 0492 [ffff]: (   -1:65535)               
+@493 ffff	///         FLAGL: 0493 [ffff]: (   -1:65535)               
+@494 fffe	///            CT: 0494 [fffe]: (   -2:65534)               
+@495 0000	///            AD: 0495 [0000]: (    0:    0)               
+@496 ffcf	///            C1: 0496 [ffcf]: (  -49:65487)               
+@497 ffc7	///            C9: 0497 [ffc7]: (  -57:65479)               
+@498 ffbf	///            LA: 0498 [ffbf]: (  -65:65471)               
+@499 ffb7	///            LI: 0499 [ffb7]: (  -73:65463)               
+@49a ffb0	///            LP: 049a [ffb0]: (  -80:65456)               
+@49b ff9f	///            SA: 049b [ff9f]: (  -97:65439)               
+@49c ff97	///            SI: 049c [ff97]: ( -105:65431)               
+@49d ff90	///            SP: 049d [ff90]: ( -112:65424)               
+@49e 0000	///             X: 049e [0000]: (    0:    0)               
+@49f 0008	///             Y: 049f [0008]: (    8:    8)               
+@4a0 0000	///             Z: 04a0 [0000]: (    0:    0)               
+@4a1 fff0	///            KN: 04a1 [fff0]: (  -16:65520)               
+@4a2 0000	///           DIF: 04a2 [0000]: (    0:    0)               
+@4a3 0000	///          TAFG: 04a3 [0000]: (    0:    0)               	// type again flag
+@4a4 0000	///         SCHFG: 04a4 [0000]: (    0:    0)               
+@4a5 0000	///         FSTFG: 04a5 [0000]: (    0:    0)               
+@4a6 0000	///    SUM_TN_STN: 04a6 [0000]: (    0:    0)               
+@4a7 0000	///SUM_SUM_TN_STN: 04a7 [0000]: (    0:    0)               
+@4a8 0000	///    CNT_TN_STN: 04a8 [0000]: (    0:    0)               
+@4a9 0000	///   MAX_SUM_STN: 04a9 [0000]: (    0:    0)               
+@4aa 0000	///   MIN_SUM_STN: 04aa [0000]: (    0:    0)               
+@4ab ffc0	///         J_CNT: 04ab [ffc0]: (  -64:65472)               
+@4ac 0000	///         B_CHK: 04ac [0000]: (    0:    0)               
+@4ad 0000	///     O_STN_SUM: 04ad [0000]: (    0:    0)               
+@4ae 0000	///     T_STN_SUM: 04ae [0000]: (    0:    0)               
+@4af 0000	///            PL: 04af [0000]: (    0:    0)               	//0:PL1,1:PL2
+@4b0 0000	///            GM: 04b0 [0000]: (    0:    0)               
+@4b1 0000	///         COMLP: 04b1 [0000]: (    0:    0)               
+@4b2 0000	///             P: 04b2 [0000]: (    0:    0)               	// M[P] = 0（初期化必要）
+@4b3 04b5	///           A_D: 04b3 [04b5]: ( 1205: 1205)               
+@4b4 04b5	///      A_D_CNST: 04b4 [04b5]: ( 1205: 1205)               
+@4b5 0000	///             D: 04b5 [0000]: (    0:    0)               	// D[0]
+@4b6 0000	///                04b6 [0000]: (    0:    0)               	// D[1]
+@4b7 0000	///                04b7 [0000]: (    0:    0)               	// D[2]
+@4b8 0000	///                04b8 [0000]: (    0:    0)               	// D[3]
+@4b9 0000	///                04b9 [0000]: (    0:    0)               	// D[4]
+@4ba 0000	///                04ba [0000]: (    0:    0)               	// D[5]
+@4bb 0000	///                04bb [0000]: (    0:    0)               	// D[6]
+@4bc 0000	///                04bc [0000]: (    0:    0)               	// D[7]
+@4bd 0000	///                04bd [0000]: (    0:    0)               	// D[8]
+@4be 0000	///                04be [0000]: (    0:    0)               	// D[9]
+@4bf 0000	///                04bf [0000]: (    0:    0)               	// D[10]
+@4c0 0000	///                04c0 [0000]: (    0:    0)               	// D[11]
+@4c1 0000	///                04c1 [0000]: (    0:    0)               	// D[12]
+@4c2 0000	///                04c2 [0000]: (    0:    0)               	// D[13]
+@4c3 0000	///                04c3 [0000]: (    0:    0)               	// D[14]
+@4c4 0000	///                04c4 [0000]: (    0:    0)               	// D[15]
+@4c5 0000	///                04c5 [0000]: (    0:    0)               	// D[16]
+@4c6 0000	///                04c6 [0000]: (    0:    0)               	// D[17]
+@4c7 0000	///                04c7 [0000]: (    0:    0)               	// D[18]
+@4c8 0000	///                04c8 [0000]: (    0:    0)               	// D[19]
+@4c9 0000	///                04c9 [0000]: (    0:    0)               	// D[20]
+@4ca 0000	///                04ca [0000]: (    0:    0)               	// D[21]
+@4cb 0000	///                04cb [0000]: (    0:    0)               	// D[22]
+@4cc 0000	///                04cc [0000]: (    0:    0)               	// D[23]
+@4cd 0000	///                04cd [0000]: (    0:    0)               	// D[24]
+@4ce 0000	///                04ce [0000]: (    0:    0)               	// D[25]
+@4cf 0000	///                04cf [0000]: (    0:    0)               	// D[26]
+@4d0 0002	///                04d0 [0002]: (    2:    2)               	// D[27]
+@4d1 0001	///                04d1 [0001]: (    1:    1)               	// D[28]
+@4d2 0000	///                04d2 [0000]: (    0:    0)               	// D[29]
+@4d3 0000	///                04d3 [0000]: (    0:    0)               	// D[30]
+@4d4 0000	///                04d4 [0000]: (    0:    0)               	// D[31]
+@4d5 0000	///                04d5 [0000]: (    0:    0)               	// D[32]
+@4d6 0000	///                04d6 [0000]: (    0:    0)               	// D[33]
+@4d7 0000	///                04d7 [0000]: (    0:    0)               	// D[34]
+@4d8 0001	///                04d8 [0001]: (    1:    1)               	// D[35]
+@4d9 0002	///                04d9 [0002]: (    2:    2)               	// D[36]
+@4da 0000	///                04da [0000]: (    0:    0)               	// D[37]
+@4db 0000	///                04db [0000]: (    0:    0)               	// D[38]
+@4dc 0000	///                04dc [0000]: (    0:    0)               	// D[39]
+@4dd 0000	///                04dd [0000]: (    0:    0)               	// D[40]
+@4de 0000	///                04de [0000]: (    0:    0)               	// D[41]
+@4df 0000	///                04df [0000]: (    0:    0)               	// D[42]
+@4e0 0000	///                04e0 [0000]: (    0:    0)               	// D[43]
+@4e1 0000	///                04e1 [0000]: (    0:    0)               	// D[44]
+@4e2 0000	///                04e2 [0000]: (    0:    0)               	// D[45]
+@4e3 0000	///                04e3 [0000]: (    0:    0)               	// D[46]
+@4e4 0000	///                04e4 [0000]: (    0:    0)               	// D[47]
+@4e5 0000	///                04e5 [0000]: (    0:    0)               	// D[48]
+@4e6 0000	///                04e6 [0000]: (    0:    0)               	// D[49]
+@4e7 0000	///                04e7 [0000]: (    0:    0)               	// D[50]
+@4e8 0000	///                04e8 [0000]: (    0:    0)               	// D[51]
+@4e9 0000	///                04e9 [0000]: (    0:    0)               	// D[52]
+@4ea 0000	///                04ea [0000]: (    0:    0)               	// D[53]
+@4eb 0000	///                04eb [0000]: (    0:    0)               	// D[54]
+@4ec 0000	///                04ec [0000]: (    0:    0)               	// D[55]
+@4ed 0000	///                04ed [0000]: (    0:    0)               	// D[56]
+@4ee 0000	///                04ee [0000]: (    0:    0)               	// D[57]
+@4ef 0000	///                04ef [0000]: (    0:    0)               	// D[58]
+@4f0 0000	///                04f0 [0000]: (    0:    0)               	// D[59]
+@4f1 0000	///                04f1 [0000]: (    0:    0)               	// D[60]
+@4f2 0000	///                04f2 [0000]: (    0:    0)               	// D[61]
+@4f3 0000	///                04f3 [0000]: (    0:    0)               	// D[62]
+@4f4 0000	///                04f4 [0000]: (    0:    0)               	// D[63]
